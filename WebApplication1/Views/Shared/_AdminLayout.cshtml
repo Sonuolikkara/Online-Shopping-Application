@@ -1,0 +1,651 @@
+@{
+    var controller = ViewContext.RouteData.Values["controller"]?.ToString();
+    var action = ViewContext.RouteData.Values["action"]?.ToString();
+    var mode = Context.Request.Query["mode"].ToString();
+
+    // Dashboard
+    var dashboardActive = controller == "Admin";
+
+    // Products
+    var productsOpen = controller == "AdminProducts";
+
+    var productsViewActive =
+        productsOpen && action == "Index" && mode == "view";
+
+    var productsAddActive =
+        productsOpen && action == "Create";
+
+    var productsUpdateActive =
+        productsOpen && action == "Index" && mode == "update";
+
+    var productsDeleteActive =
+        productsOpen && action == "Index" && mode == "delete";
+
+    var productsImportActive =
+        productsOpen && action == "Import";
+
+    var productsExportActive =
+        productsOpen && action == "Export";
+
+    // Categories
+    var categoriesOpen = controller == "AdminCategories";
+
+    var categoriesViewActive =
+        categoriesOpen && action == "Index" && mode == "view";
+
+    var categoriesAddActive =
+        categoriesOpen && action == "Create";
+
+    var categoriesUpdateActive =
+        categoriesOpen && action == "Index" && mode == "update";
+
+    var categoriesDeleteActive =
+        categoriesOpen && action == "Index" && mode == "delete";
+
+    // Customers
+    var customersOpen = controller == "AdminCustomers";
+
+    var customersViewActive =
+        customersOpen && action == "Index" && mode == "view";
+
+    var customersAddActive =
+        customersOpen && action == "Create";
+
+    var customersUpdateActive =
+        customersOpen &&
+        (
+            (action == "Index" && mode == "update") ||
+            action == "Edit"
+        );
+
+    var customersDeleteActive =
+        customersOpen && action == "Index" && mode == "delete";
+
+    // Orders
+    var ordersOpen = controller == "AdminOrders";
+
+    var ordersViewActive =
+        ordersOpen && action == "Index" && mode == "view";
+
+    var ordersAddActive =
+        ordersOpen && action == "Create";
+
+    var ordersUpdateActive =
+        ordersOpen &&
+        (
+            (action == "Index" && mode == "update") ||
+            action == "Edit"
+        );
+
+    var ordersDeleteActive =
+        ordersOpen && action == "Index" && mode == "delete";
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>
+        @ViewData["Title"] - Shopping Cart Admin
+    </title>
+
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+
+
+    <!-- Bootstrap Icons -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+
+    <!-- Existing Admin CSS -->
+
+    <link rel="stylesheet"
+          href="~/css/styles.css?v=2" />
+
+
+    <!-- Admin Layout CSS -->
+
+    <link rel="stylesheet"
+          href="~/css/admin-layout.css" />
+
+
+    @await RenderSectionAsync("Styles", required: false)
+
+
+    <!-- Admin Layout JavaScript -->
+
+    <script src="~/js/admin-layout.js"></script>
+
+</head>
+
+
+<body>
+
+<div class="admin-wrapper">
+
+
+    <!-- ================================================= -->
+    <!-- SIDEBAR -->
+    <!-- ================================================= -->
+
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-inner">
+
+
+            <!-- TITLE -->
+
+            <h4 class="admin-title">
+                Admin Panel
+            </h4>
+
+
+            <!-- ================================================= -->
+            <!-- DASHBOARD -->
+            <!-- ================================================= -->
+
+            <a href="/Admin/Dashboard"
+               class="sidebar-main-link @(dashboardActive ? "sidebar-active" : "")">
+
+                <i class="bi bi-speedometer2"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <!-- ================================================= -->
+            <!-- PRODUCT MANAGEMENT -->
+            <!-- ================================================= -->
+            <!--Accordion-->
+
+            <div class="sidebar-section">
+
+                <a class="sidebar-management"
+                   data-bs-toggle="collapse"
+                   href="#productManagement"
+                   role="button"
+                   aria-expanded="@(productsOpen ? "true" : "false")">
+
+                    <span>
+
+                        <i class="bi bi-box-seam"></i>
+
+                        Product Management
+
+                    </span>
+
+                    <i class="bi bi-chevron-down"></i>
+
+                </a>
+
+
+                <div class="collapse @(productsOpen ? "show" : "")"
+                     id="productManagement">
+
+                    <div class="sidebar-submenu">
+
+
+                        <!-- VIEW -->
+                        <!--EVENT-->
+                        <a href="/AdminProducts/Index?mode=view"
+                           class="sidebar-sub-link @(productsViewActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-list"></i>
+
+                            View Products
+
+                        </a>
+
+
+                        <!-- ADD -->
+                        <!--EVENT-->
+                        <a href="/AdminProducts/Create"
+                           class="sidebar-sub-link @(productsAddActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-plus-circle"></i>
+
+                            Add Product
+
+                        </a>
+
+
+                        <!-- UPDATE -->
+                        <!--EVENT-->
+                        <a href="/AdminProducts/Index?mode=update"
+                           class="sidebar-sub-link @(productsUpdateActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-pencil"></i>
+
+                            Update Product
+
+                        </a>
+
+
+                        <!-- DELETE -->
+                        <!--EVENT-->
+                        <a href="/AdminProducts/Index?mode=delete"
+                           class="sidebar-sub-link @(productsDeleteActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-trash"></i>
+
+                            Delete Product
+
+                        </a>
+
+
+                        <!-- IMPORT -->
+                        <!--EVENT-->
+                        <a href="/AdminProducts/Import"
+                           class="sidebar-sub-link @(productsImportActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-upload"></i>
+
+                            Import CSV
+
+                        </a>
+
+
+                        <!-- EXPORT -->
+                        <!--EVENT-->
+                        <a href="/AdminProducts/Export"
+                           class="sidebar-sub-link @(productsExportActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-download"></i>
+
+                            Export CSV
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- CATEGORY MANAGEMENT -->
+            <!-- ================================================= -->
+            <!--Accordion-->
+
+            <div class="sidebar-section">
+
+                <a class="sidebar-management"
+                   data-bs-toggle="collapse"
+                   href="#categoryManagement"
+                   role="button"
+                   aria-expanded="@(categoriesOpen ? "true" : "false")">
+
+                    <span>
+
+                        <i class="bi bi-tags"></i>
+
+                        Category Management
+
+                    </span>
+
+                    <i class="bi bi-chevron-down"></i>
+
+                </a>
+
+
+                <div class="collapse @(categoriesOpen ? "show" : "")"
+                     id="categoryManagement">
+
+                    <div class="sidebar-submenu">
+
+
+                        <!-- VIEW -->
+                        <!--EVENT-->
+                        <a href="/AdminCategories/Index?mode=view"
+                           class="sidebar-sub-link @(categoriesViewActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-list"></i>
+
+                            View Categories
+
+                        </a>
+
+
+                        <!-- ADD -->
+                        <!--EVENT-->
+                        <a href="/AdminCategories/Create"
+                           class="sidebar-sub-link @(categoriesAddActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-plus-circle"></i>
+
+                            Add Category
+
+                        </a>
+
+
+                        <!-- UPDATE -->
+                        <!--EVENT-->
+                        <a href="/AdminCategories/Index?mode=update"
+                           class="sidebar-sub-link @(categoriesUpdateActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-pencil"></i>
+
+                            Update Category
+
+                        </a>
+
+
+                        <!-- DELETE -->
+                        <!--EVENT-->
+                        <a href="/AdminCategories/Index?mode=delete"
+                           class="sidebar-sub-link @(categoriesDeleteActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-trash"></i>
+
+                            Delete Category
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- CUSTOMER MANAGEMENT -->
+            <!-- ================================================= -->
+            <!--Accordion-->
+            <div class="sidebar-section">
+
+                <a class="sidebar-management"
+                   data-bs-toggle="collapse"
+                   href="#customerManagement"
+                   role="button"
+                   aria-expanded="@(customersOpen ? "true" : "false")">
+
+                    <span>
+
+                        <i class="bi bi-people"></i>
+
+                        Customer Management
+
+                    </span>
+
+                    <i class="bi bi-chevron-down"></i>
+
+                </a>
+
+
+                <div class="collapse @(customersOpen ? "show" : "")"
+                     id="customerManagement">
+
+                    <div class="sidebar-submenu">
+
+
+                        <!-- VIEW CUSTOMERS -->
+                        <!--EVENT-->
+                        <a href="/AdminCustomers/Index?mode=view"
+                           class="sidebar-sub-link @(customersViewActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-list"></i>
+
+                            View Customers
+
+                        </a>
+
+
+                        <!-- ADD CUSTOMER -->
+                        <!--EVENT-->
+                        <a href="/AdminCustomers/Create"
+                           class="sidebar-sub-link @(customersAddActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-plus-circle"></i>
+
+                            Add Customer
+
+                        </a>
+
+
+                        <!-- UPDATE CUSTOMER -->
+                        <!--EVENT-->
+                        <a href="/AdminCustomers/Index?mode=update"
+                           class="sidebar-sub-link @(customersUpdateActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-pencil"></i>
+
+                            Update Customer
+
+                        </a>
+
+
+                        <!-- DELETE CUSTOMER -->
+                        <!--EVENT-->
+                        <a href="/AdminCustomers/Index?mode=delete"
+                           class="sidebar-sub-link @(customersDeleteActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-trash"></i>
+
+                            Delete Customer
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- ORDER MANAGEMENT -->
+            <!-- ================================================= -->
+            <!--Accordion-->
+            <div class="sidebar-section">
+
+                <a class="sidebar-management"
+                   data-bs-toggle="collapse"
+                   href="#orderManagement"
+                   role="button"
+                   aria-expanded="@(ordersOpen ? "true" : "false")">
+
+                    <span>
+
+                        <i class="bi bi-cart-check"></i>
+
+                        Order Management
+
+                    </span>
+
+                    <i class="bi bi-chevron-down"></i>
+
+                </a>
+
+
+                <div class="collapse @(ordersOpen ? "show" : "")"
+                     id="orderManagement">
+
+                    <div class="sidebar-submenu">
+
+
+                        <!-- VIEW ORDERS -->
+                        <!--EVENT-->
+                        <a href="/AdminOrders/Index?mode=view"
+                           class="sidebar-sub-link @(ordersViewActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-list"></i>
+
+                            View Orders
+
+                        </a>
+
+
+                        <!-- ADD ORDER -->
+                        <!--EVENT-->
+                        <a href="/AdminOrders/Create"
+                           class="sidebar-sub-link @(ordersAddActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-plus-circle"></i>
+
+                            Add Order
+
+                        </a>
+
+
+                        <!-- UPDATE ORDER -->
+                        <!--EVENT-->
+                        <a href="/AdminOrders/Index?mode=update"
+                           class="sidebar-sub-link @(ordersUpdateActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-pencil"></i>
+
+                            Update Order
+
+                        </a>
+
+
+                        <!-- DELETE ORDER -->
+                        <!--EVENT-->
+                        <a href="/AdminOrders/Index?mode=delete"
+                           class="sidebar-sub-link @(ordersDeleteActive ? "sidebar-sub-active" : "")">
+
+                            <i class="bi bi-trash"></i>
+
+                            Delete Order
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================================================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ================================================= -->
+
+    <div class="admin-content">
+
+
+        <!-- ================================================= -->
+        <!-- TOP BAR -->
+        <!-- ================================================= -->
+
+        <nav class="admin-navbar">
+
+            <div>
+
+                <strong>
+                    Admin Dashboard
+                </strong>
+
+            </div>
+
+
+            <!-- NAVBAR ACTIONS -->
+
+            <div class="admin-navbar-actions">
+
+
+                <!-- DARK / LIGHT MODE -->
+
+                <button type="button"
+                        id="themeToggle"
+                        class="theme-toggle"
+                        title="Toggle dark mode"
+                        aria-label="Toggle dark mode">
+
+                    <i class="bi bi-moon-fill"
+                       id="themeIcon"></i>
+
+                </button>
+
+
+                <!-- ADMIN USER -->
+
+                <span class="admin-user">
+
+                    <i class="bi bi-person-circle"></i>
+
+                    Admin
+
+                </span>
+
+
+                <!-- LOGOUT -->
+
+                <form asp-controller="AdminLogin"
+                      asp-action="Logout"
+                      method="post"
+                      style="display:inline;">
+
+                    @Html.AntiForgeryToken()
+
+                    <button type="submit"
+                            class="btn btn-outline-danger btn-sm">
+
+                        <i class="bi bi-box-arrow-right"></i>
+
+                        Logout
+
+                    </button>
+
+                </form>
+
+
+            </div>
+
+        </nav>
+
+
+        <!-- ================================================= -->
+        <!-- PAGE -->
+        <!-- ================================================= -->
+
+        <main class="admin-page">
+
+            @RenderBody()
+
+        </main>
+
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- BOOTSTRAP JS -->
+<!-- ================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+@await RenderSectionAsync("Scripts", required: false)
+
+
+</body>
+
+</html>

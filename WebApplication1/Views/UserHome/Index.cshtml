@@ -1,0 +1,169 @@
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/user-home.css" />
+}
+
+
+<div class="home-page">
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-label">
+            Welcome to Shopping Cart
+        </div>
+
+        <h1>
+            Everything You Need,
+            All in One Place
+        </h1>
+
+        <p class="hero-text">
+            Discover quality products at great prices.
+            Browse our collection, add your favourites
+            to your cart and enjoy a simple shopping
+            experience.
+        </p>
+      <!--Event for ShopNow Button-->
+       <a href="/UserProducts"
+          class="shop-now">
+
+            SHOP NOW
+
+      </a>
+
+    </section>
+
+
+    <!-- ================= WHY SHOP WITH US ================= -->
+
+    <section class="feature-strip"
+             id="why-shop">
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+
+                <i class="bi bi-gem"></i>
+
+            </div>
+
+            <h3>
+                Quality Products
+            </h3>
+
+            <p>
+                Carefully selected products
+                for your everyday needs.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+
+                <i class="bi bi-shield-check"></i>
+
+            </div>
+
+            <h3>
+                Secure Shopping
+            </h3>
+
+            <p>
+                A simple and secure experience
+                from cart to checkout.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+
+                <i class="bi bi-truck"></i>
+
+            </div>
+
+            <h3>
+                Fast Delivery
+            </h3>
+
+            <p>
+                Get your orders delivered
+                quickly and conveniently.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ================= PROMOTION ================= -->
+
+    <section class="promo">
+
+
+        <div class="promo-content">
+
+            <p class="promo-label">
+                Shop Smarter
+            </p>
+
+            <h2>
+                Find Something
+                You Love
+            </h2>
+
+            <p class="promo-text">
+                Explore our collection of products
+                and find something that fits your
+                needs and your budget.
+            </p>
+
+        </div>
+
+
+        <div class="promo-image">
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ================= FINAL SHOP CTA ================= -->
+
+    <section class="shop-section">
+
+        <p class="shop-section-label">
+            OUR COLLECTION
+        </p>
+
+        <h2>
+            Ready to Start Shopping?
+        </h2>
+        <!--Event for Shopnow button-->
+        <a asp-controller="UserProducts"
+           asp-action="Index"
+           class="shop-now">
+
+            SHOP NOW
+
+        </a>
+
+    </section>
+
+
+</div>

@@ -1,0 +1,472 @@
+/* =========================================================
+   THEME VARIABLES
+   ========================================================= */
+
+:root {
+    --admin-bg: #f5f5f5;
+    --admin-surface: #ffffff;
+    --admin-surface-secondary: #f8f8f8;
+
+    --admin-text: #171717;
+    --admin-text-secondary: #706d69;
+
+    --admin-border: #d8d5d2;
+
+    --admin-sidebar-bg: #ffffff;
+    --admin-sidebar-text: #333333;
+
+    --admin-navbar-bg: #ffffff;
+
+    --admin-input-bg: #ffffff;
+    --admin-input-text: #171717;
+
+    --admin-hover: #f1f1f1;
+
+    --admin-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================================
+   DARK THEME VARIABLES
+   ========================================================= */
+
+body.dark-mode {
+    --admin-bg: #121212;
+    --admin-surface: #1e1e1e;
+    --admin-surface-secondary: #252525;
+
+    --admin-text: #f1f1f1;
+    --admin-text-secondary: #b8b8b8;
+
+    --admin-border: #3a3a3a;
+
+    --admin-sidebar-bg: #181818;
+    --admin-sidebar-text: #e5e5e5;
+
+    --admin-navbar-bg: #181818;
+
+    --admin-input-bg: #252525;
+    --admin-input-text: #f1f1f1;
+
+    --admin-hover: #2d2d2d;
+
+    --admin-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+body {
+    background-color: var(--admin-bg);
+    color: var(--admin-text);
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* =========================================================
+   ADMIN WRAPPER
+   ========================================================= */
+
+.admin-wrapper {
+    background-color: var(--admin-bg);
+    color: var(--admin-text);
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.admin-sidebar {
+    background-color: var(--admin-sidebar-bg);
+    color: var(--admin-sidebar-text);
+    border-color: var(--admin-border);
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.sidebar-inner {
+    background-color: var(--admin-sidebar-bg);
+}
+
+
+.admin-title {
+    color: var(--admin-text);
+}
+
+
+/* =========================================================
+   SIDEBAR LINKS
+   ========================================================= */
+
+.sidebar-main-link,
+.sidebar-management,
+.sidebar-sub-link {
+    color: var(--admin-sidebar-text);
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.sidebar-main-link:hover,
+.sidebar-management:hover,
+.sidebar-sub-link:hover {
+    background-color: var(--admin-hover);
+    color: var(--admin-text);
+}
+
+
+.sidebar-active {
+    color: var(--admin-text);
+}
+
+
+.sidebar-sub-active {
+    color: var(--admin-text);
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.admin-content {
+    background-color: var(--admin-bg);
+    color: var(--admin-text);
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.admin-navbar {
+    background-color: var(--admin-navbar-bg);
+    color: var(--admin-text);
+    border-color: var(--admin-border);
+
+    box-shadow: var(--admin-shadow);
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.admin-navbar strong {
+    color: var(--admin-text);
+}
+
+
+.admin-user {
+    color: var(--admin-text);
+}
+
+
+/* =========================================================
+   NAVBAR ACTIONS
+   ========================================================= */
+
+.admin-navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+/* =========================================================
+   THEME TOGGLE
+   ========================================================= */
+
+.theme-toggle {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--admin-border);
+    border-radius: 50%;
+
+    background: var(--admin-surface);
+    color: var(--admin-text);
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.theme-toggle:hover {
+    background-color: var(--admin-text);
+    color: var(--admin-surface);
+
+    transform: scale(1.05);
+}
+
+
+.theme-toggle i {
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.admin-page {
+    background-color: var(--admin-bg);
+    color: var(--admin-text);
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.dark-mode .card {
+    background-color: var(--admin-surface);
+    color: var(--admin-text);
+    border-color: var(--admin-border);
+}
+
+
+.dark-mode .card-header,
+.dark-mode .card-footer {
+    background-color: var(--admin-surface-secondary);
+    color: var(--admin-text);
+    border-color: var(--admin-border);
+}
+
+
+.dark-mode .card-body {
+    color: var(--admin-text);
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.dark-mode .table {
+    --bs-table-bg: var(--admin-surface);
+    --bs-table-color: var(--admin-text);
+    --bs-table-border-color: var(--admin-border);
+
+    color: var(--admin-text);
+    border-color: var(--admin-border);
+}
+
+
+.dark-mode .table thead {
+    background-color: var(--admin-surface-secondary);
+    color: var(--admin-text);
+}
+
+
+.dark-mode .table tbody tr {
+    background-color: var(--admin-surface);
+    color: var(--admin-text);
+}
+
+
+.dark-mode .table tbody tr:hover {
+    background-color: var(--admin-hover);
+    color: var(--admin-text);
+}
+
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+
+.dark-mode .form-control,
+.dark-mode .form-select {
+    background-color: var(--admin-input-bg);
+    color: var(--admin-input-text);
+    border-color: var(--admin-border);
+}
+
+
+.dark-mode .form-control:focus,
+.dark-mode .form-select:focus {
+    background-color: var(--admin-input-bg);
+    color: var(--admin-input-text);
+
+    border-color: #777;
+
+    box-shadow:
+        0 0 0 0.2rem rgba(255, 255, 255, 0.08);
+}
+
+
+.dark-mode .form-control::placeholder {
+    color: #999999;
+}
+
+
+.dark-mode .form-label {
+    color: var(--admin-text);
+}
+
+
+/* =========================================================
+   MODALS
+   ========================================================= */
+
+.dark-mode .modal-content {
+    background-color: var(--admin-surface);
+    color: var(--admin-text);
+    border-color: var(--admin-border);
+}
+
+
+.dark-mode .modal-header,
+.dark-mode .modal-footer {
+    border-color: var(--admin-border);
+}
+
+
+.dark-mode .btn-close {
+    filter: invert(1);
+}
+
+
+/* =========================================================
+   DROPDOWNS
+   ========================================================= */
+
+.dark-mode .dropdown-menu {
+    background-color: var(--admin-surface);
+    border-color: var(--admin-border);
+}
+
+
+.dark-mode .dropdown-item {
+    color: var(--admin-text);
+}
+
+
+.dark-mode .dropdown-item:hover {
+    background-color: var(--admin-hover);
+    color: var(--admin-text);
+}
+
+
+/* =========================================================
+   ALERTS
+   ========================================================= */
+
+.dark-mode .alert {
+    border-color: var(--admin-border);
+}
+
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+.dark-mode .text-dark {
+    color: var(--admin-text) !important;
+}
+
+
+.dark-mode .text-muted {
+    color: var(--admin-text-secondary) !important;
+}
+
+
+/* =========================================================
+   HORIZONTAL RULE
+   ========================================================= */
+
+.dark-mode hr {
+    border-color: var(--admin-border);
+    opacity: 1;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.dark-mode a {
+    color: inherit;
+}
+
+
+/* =========================================================
+   BOOTSTRAP LIST GROUP
+   ========================================================= */
+
+.dark-mode .list-group-item {
+    background-color: var(--admin-surface);
+    color: var(--admin-text);
+    border-color: var(--admin-border);
+}
+
+
+/* =========================================================
+   BOOTSTRAP PAGINATION
+   ========================================================= */
+
+.dark-mode .page-link {
+    background-color: var(--admin-surface);
+    color: var(--admin-text);
+    border-color: var(--admin-border);
+}
+
+
+.dark-mode .page-link:hover {
+    background-color: var(--admin-hover);
+    color: var(--admin-text);
+}
+
+
+/* =========================================================
+   TRANSITION
+   ========================================================= */
+
+.admin-sidebar,
+.admin-navbar,
+.admin-page,
+.card,
+.table,
+.form-control,
+.form-select {
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}

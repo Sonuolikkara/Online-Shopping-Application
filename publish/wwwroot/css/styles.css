@@ -1,0 +1,1169 @@
+/* =========================================================
+   FINAL SIDEBAR FIX
+   ========================================================= */
+
+/* Make the entire sidebar one continuous color */
+.admin-wrapper {
+    align-items: stretch !important;
+}
+
+.admin-sidebar {
+    align-self: stretch !important;
+    min-height: 100vh !important;
+    height: auto !important;
+    background: #0b2a4a !important;
+    color: #ffffff !important;
+}
+
+.sidebar-inner {
+    min-height: 100vh !important;
+    background: #0b2a4a !important;
+}
+
+
+/* LIGHT MODE */
+body:not(.dark-mode) .admin-sidebar,
+body:not(.dark-mode) .sidebar-inner {
+    background: #0b2a4a !important;
+}
+
+
+/* DARK MODE */
+body.dark-mode .admin-sidebar,
+body.dark-mode .sidebar-inner {
+    background: #071b31 !important;
+}
+
+
+/* Keep all sidebar content visible */
+.admin-sidebar *,
+.sidebar-inner * {
+    box-sizing: border-box;
+}
+
+.admin-sidebar i {
+    color: #ffffff !important;
+}
+
+.admin-sidebar a,
+.admin-sidebar a span {
+    color: #ffffff !important;
+}
+
+
+
+/* =========================================================
+   ADMIN DASHBOARD
+   ========================================================= */
+
+.dashboard-card {
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    background: #ffffff;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-card .card-body {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.dashboard-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+
+    border-radius: 10px;
+
+    background: #212529;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+}
+
+.dashboard-content {
+    min-width: 0;
+}
+
+.dashboard-label {
+    margin: 0 0 4px 0;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    color: #6c757d;
+
+    white-space: nowrap;
+}
+
+.dashboard-value {
+    margin: 0;
+
+    font-size: 30px;
+    font-weight: 600;
+
+    color: #212529;
+}
+
+
+/* =========================================================
+   ADMIN LAYOUT
+   ========================================================= */
+
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.admin-sidebar {
+    width: 250px;
+    min-height: 100vh;
+
+    background: #212529;
+
+    color: #ffffff;
+
+    flex-shrink: 0;
+}
+
+.sidebar-inner {
+    padding: 20px 14px;
+}
+
+
+/* =========================================================
+   ADMIN PANEL TITLE
+   ========================================================= */
+
+.admin-title {
+    color: #ffffff;
+
+    font-size: 23px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    margin: 0;
+
+    padding: 5px 0 20px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+/* =========================================================
+   DASHBOARD LINK
+   ========================================================= */
+
+.sidebar-main-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+
+    padding: 12px 14px;
+
+    margin-top: 20px;
+    margin-bottom: 16px;
+
+    border-radius: 7px;
+
+    color: #ffffff;
+    text-decoration: none !important;
+
+    font-size: 15px;
+
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-main-link:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+
+    color: #ffffff;
+}
+
+
+/* Active Dashboard */
+
+.sidebar-main-link.sidebar-active {
+    background-color: #0d6efd;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   MANAGEMENT MENU
+   ========================================================= */
+
+.sidebar-section {
+    margin-bottom: 8px;
+}
+
+
+/* Management heading */
+
+.sidebar-management {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 14px 14px;
+
+    color: #ffffff;
+
+    background: transparent;
+
+    border-radius: 7px;
+
+    text-decoration: none !important;
+
+    font-size: 15px;
+
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-management:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+
+    color: #ffffff;
+}
+
+
+/* Left side icon + text */
+
+.sidebar-management span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* Chevron */
+
+.sidebar-management > i {
+    font-size: 12px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================================
+   SUBMENU
+   ========================================================= */
+
+.sidebar-submenu {
+    margin-left: 14px;
+
+    padding-left: 10px;
+
+    margin-top: 3px;
+
+    margin-bottom: 5px;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
+/* Individual operation */
+
+.sidebar-sub-link {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 9px 12px;
+
+    margin: 2px 0;
+
+    border-radius: 6px;
+
+    color: #e0e0e0;
+
+    background: transparent;
+
+    text-decoration: none !important;
+
+    font-size: 14px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* Operation hover */
+
+.sidebar-sub-link:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+
+    color: #ffffff;
+
+    text-decoration: none !important;
+}
+
+
+/* =========================================================
+   SELECTED OPERATION
+   ========================================================= */
+
+.sidebar-sub-active {
+    background-color: #0d6efd !important;
+
+    color: #ffffff !important;
+
+    text-decoration: none !important;
+}
+
+
+/* =========================================================
+   REMOVE LINK UNDERLINES
+   ========================================================= */
+
+.admin-sidebar a,
+.admin-sidebar a:hover,
+.admin-sidebar a:focus,
+.admin-sidebar a:active {
+    text-decoration: none !important;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.admin-content {
+    flex: 1;
+
+    min-width: 0;
+
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   TOP NAVBAR
+   ========================================================= */
+
+.admin-navbar {
+    height: 56px;
+
+    padding: 0 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #f8f9fa;
+
+    border-bottom: 1px solid #dee2e6;
+}
+
+
+.admin-user {
+    margin-right: 18px;
+}
+
+
+/* =========================================================
+   PAGE CONTENT
+   ========================================================= */
+
+.admin-page {
+    padding: 30px;
+}
+
+
+/* =========================================================
+   DASHBOARD SECTION CARDS
+   ========================================================= */
+
+.dashboard-section-card {
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    background: #ffffff;
+
+    transition: all 0.2s ease;
+}
+
+.dashboard-section-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-section-card .card-body {
+    padding: 22px;
+}
+
+
+/* =========================================================
+   DASHBOARD SECTION HEADINGS
+   ========================================================= */
+
+.dashboard-section-title {
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #212529;
+}
+
+.dashboard-section-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #212529;
+    color: #ffffff;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   ORDERS OVERVIEW
+   ========================================================= */
+
+.dashboard-order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashboard-order-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 14px;
+
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    transition: background-color 0.2s ease;
+}
+
+.dashboard-order-row:hover {
+    background-color: #f8f9fa;
+}
+
+.dashboard-order-label {
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #212529;
+}
+
+.dashboard-order-amount {
+    font-size: 15px;
+    font-weight: 600;
+
+    color: #212529;
+}
+
+
+/* =========================================================
+   LOW STOCK PRODUCTS
+   ========================================================= */
+
+.dashboard-stock-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashboard-stock-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 14px;
+
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+
+    background: #ffffff;
+}
+
+.dashboard-stock-name {
+    font-size: 14px;
+    font-weight: 500;
+
+    color: #212529;
+}
+
+.dashboard-stock-value {
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #dc3545;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   RECENT ORDERS TABLE
+   ========================================================= */
+
+.dashboard-table {
+    font-size: 14px;
+}
+
+.dashboard-table thead th {
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #6c757d;
+
+    border-bottom: 1px solid #dee2e6;
+
+    padding: 12px 10px;
+}
+
+.dashboard-table tbody td {
+    padding: 13px 10px;
+
+    color: #212529;
+
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.dashboard-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.dashboard-empty-state {
+    padding: 25px 15px;
+
+    text-align: center;
+
+    color: #6c757d;
+
+    font-size: 14px;
+}
+
+/* =========================================================
+   DASHBOARD CHARTS
+   ========================================================= */
+
+.dashboard-chart-container {
+    position: relative;
+
+    width: 100%;
+    height: 260px;
+}
+
+.dashboard-doughnut-container {
+    height: 230px;
+}
+
+
+/* =========================================================
+   ORDER STATUS SUMMARY
+   ========================================================= */
+
+.dashboard-status-summary {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+.dashboard-status-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 14px;
+
+    color: #495057;
+}
+
+.dashboard-status-item strong {
+    margin-left: auto;
+
+    color: #212529;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ORDER STATUS DOTS
+   ========================================================= */
+
+.dashboard-status-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+.status-delivered {
+    background-color: #198754;
+}
+
+.status-processing {
+    background-color: #0d6efd;
+}
+
+.status-pending {
+    background-color: #ffc107;
+}
+
+
+/* =========================================================
+   ORDER STATUS BADGES
+   ========================================================= */
+
+.dashboard-status-badge {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+.status-badge-delivered {
+    background-color: #d1e7dd;
+
+    color: #146c43;
+}
+
+.status-badge-processing {
+    background-color: #cfe2ff;
+
+    color: #084298;
+}
+
+.status-badge-pending {
+    background-color: #fff3cd;
+
+    color: #664d03;
+}
+
+
+/* =========================================================
+   ORDER AMOUNT CHART
+   ========================================================= */
+
+#orderAmountChart {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   ORDER STATUS CHART
+   ========================================================= */
+
+#orderStatusChart {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+/* =========================================================
+   VIBRANT ADMIN THEME
+   Final theme overrides
+   ========================================================= */
+
+/* ---------- LIGHT MODE ---------- */
+
+:root {
+    --admin-light-bg: #f4f7fb;
+    --admin-light-surface: #ffffff;
+    --admin-light-surface-alt: #eef4fb;
+    --admin-light-text: #10233f;
+    --admin-light-heading: #0b1f3a;
+    --admin-light-muted: #52657d;
+    --admin-light-border: #d9e2ec;
+
+    --admin-sidebar-light: #0b2a4a;
+    --admin-sidebar-light-hover: #123b63;
+
+    --admin-accent: #2563eb;
+    --admin-accent-bright: #3b82f6;
+}
+
+
+/* Main light-mode area */
+body:not(.dark-mode) {
+    background: var(--admin-light-bg) !important;
+    color: var(--admin-light-text) !important;
+}
+
+body:not(.dark-mode) .admin-wrapper,
+body:not(.dark-mode) .admin-content {
+    background: var(--admin-light-bg) !important;
+    color: var(--admin-light-text) !important;
+}
+
+body:not(.dark-mode) .admin-page {
+    background: var(--admin-light-bg) !important;
+    color: var(--admin-light-text) !important;
+}
+
+
+/* Light-mode sidebar */
+body:not(.dark-mode) .admin-sidebar {
+    background: var(--admin-sidebar-light) !important;
+    color: #ffffff !important;
+}
+
+body:not(.dark-mode) .admin-title,
+body:not(.dark-mode) .sidebar-main-link,
+body:not(.dark-mode) .sidebar-management {
+    color: #ffffff !important;
+}
+
+body:not(.dark-mode) .sidebar-sub-link {
+    color: #dcecff !important;
+}
+
+body:not(.dark-mode) .sidebar-main-link:hover,
+body:not(.dark-mode) .sidebar-management:hover,
+body:not(.dark-mode) .sidebar-sub-link:hover {
+    background: var(--admin-sidebar-light-hover) !important;
+    color: #ffffff !important;
+}
+
+body:not(.dark-mode) .sidebar-main-link.sidebar-active,
+body:not(.dark-mode) .sidebar-sub-active {
+    background: var(--admin-accent) !important;
+    color: #ffffff !important;
+}
+
+
+/* Light-mode navbar */
+body:not(.dark-mode) .admin-navbar {
+    background: #ffffff !important;
+    color: var(--admin-light-text) !important;
+    border-bottom: 1px solid var(--admin-light-border) !important;
+}
+
+body:not(.dark-mode) .admin-navbar strong,
+body:not(.dark-mode) .admin-user {
+    color: var(--admin-light-heading) !important;
+}
+
+
+/* Light-mode page headings */
+body:not(.dark-mode) .admin-page h1,
+body:not(.dark-mode) .admin-page h2,
+body:not(.dark-mode) .admin-page h3,
+body:not(.dark-mode) .admin-page h4,
+body:not(.dark-mode) .admin-page h5,
+body:not(.dark-mode) .admin-page h6 {
+    color: var(--admin-light-heading) !important;
+}
+
+body:not(.dark-mode) .admin-page p {
+    color: var(--admin-light-muted);
+}
+
+
+/* Light-mode cards */
+body:not(.dark-mode) .card,
+body:not(.dark-mode) .dashboard-card,
+body:not(.dark-mode) .dashboard-section-card {
+    background: var(--admin-light-surface) !important;
+    color: var(--admin-light-text) !important;
+    border-color: var(--admin-light-border) !important;
+}
+
+body:not(.dark-mode) .dashboard-label,
+body:not(.dark-mode) .dashboard-empty-state {
+    color: var(--admin-light-muted) !important;
+}
+
+body:not(.dark-mode) .dashboard-value,
+body:not(.dark-mode) .dashboard-section-title,
+body:not(.dark-mode) .dashboard-order-label,
+body:not(.dark-mode) .dashboard-order-amount,
+body:not(.dark-mode) .dashboard-stock-name {
+    color: var(--admin-light-heading) !important;
+}
+
+
+/* ---------- DARK MODE ---------- */
+
+body.dark-mode {
+    background: #091321 !important;
+    color: #f8fbff !important;
+}
+
+body.dark-mode .admin-wrapper,
+body.dark-mode .admin-content,
+body.dark-mode .admin-page {
+    background: #091321 !important;
+    color: #f8fbff !important;
+}
+
+
+/* Dark-mode sidebar */
+body.dark-mode .admin-sidebar {
+    background: #071b31 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .admin-title,
+body.dark-mode .sidebar-main-link,
+body.dark-mode .sidebar-management {
+    color: #ffffff !important;
+}
+
+body.dark-mode .sidebar-sub-link {
+    color: #dcecff !important;
+}
+
+body.dark-mode .sidebar-main-link:hover,
+body.dark-mode .sidebar-management:hover,
+body.dark-mode .sidebar-sub-link:hover {
+    background: #102d4c !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .sidebar-main-link.sidebar-active,
+body.dark-mode .sidebar-sub-active {
+    background: #2563eb !important;
+    color: #ffffff !important;
+}
+
+
+/* Force sidebar icons visible */
+body.dark-mode .admin-sidebar i,
+body.dark-mode .sidebar-main-link i,
+body.dark-mode .sidebar-management i,
+body.dark-mode .sidebar-sub-link i {
+    color: #ffffff !important;
+}
+
+
+/* Dark-mode navbar */
+body.dark-mode .admin-navbar {
+    background: #101c2c !important;
+    color: #f8fbff !important;
+    border-bottom: 1px solid #293b50 !important;
+}
+
+body.dark-mode .admin-navbar strong,
+body.dark-mode .admin-user {
+    color: #ffffff !important;
+}
+
+
+/* Dark-mode headings */
+body.dark-mode .admin-page h1,
+body.dark-mode .admin-page h2,
+body.dark-mode .admin-page h3,
+body.dark-mode .admin-page h4,
+body.dark-mode .admin-page h5,
+body.dark-mode .admin-page h6 {
+    color: #f8fbff !important;
+}
+
+body.dark-mode .admin-page p {
+    color: #b9c9da !important;
+}
+
+
+/* Dark-mode cards */
+body.dark-mode .card,
+body.dark-mode .dashboard-card,
+body.dark-mode .dashboard-section-card {
+    background: #122033 !important;
+    color: #f8fbff !important;
+    border-color: #30445a !important;
+}
+
+body.dark-mode .card-body,
+body.dark-mode .dashboard-card .card-body,
+body.dark-mode .dashboard-section-card .card-body {
+    color: #f8fbff !important;
+}
+
+
+/* Dashboard labels and values */
+body.dark-mode .dashboard-label {
+    color: #aebfd1 !important;
+}
+
+body.dark-mode .dashboard-value,
+body.dark-mode .dashboard-section-title,
+body.dark-mode .dashboard-order-label,
+body.dark-mode .dashboard-order-amount,
+body.dark-mode .dashboard-stock-name {
+    color: #f8fbff !important;
+}
+
+
+/* Dashboard icon boxes */
+body.dark-mode .dashboard-icon,
+body.dark-mode .dashboard-section-icon {
+    background: #1b3047 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .dashboard-icon i,
+body.dark-mode .dashboard-section-icon i {
+    color: #ffffff !important;
+}
+
+
+/* Dark-mode order/stock rows */
+body.dark-mode .dashboard-order-row,
+body.dark-mode .dashboard-stock-row {
+    background: #17283b !important;
+    color: #f8fbff !important;
+    border-color: #30445a !important;
+}
+
+body.dark-mode .dashboard-order-row:hover,
+body.dark-mode .dashboard-stock-row:hover {
+    background: #1e344b !important;
+}
+
+body.dark-mode .dashboard-order-row *,
+body.dark-mode .dashboard-stock-row * {
+    color: #f8fbff !important;
+}
+
+
+/* ---------- ALL ADMIN TABLES ---------- */
+
+body.dark-mode .table {
+    --bs-table-bg: #122033 !important;
+    --bs-table-color: #f8fbff !important;
+    --bs-table-border-color: #30445a !important;
+    --bs-table-striped-bg: #17283b !important;
+    --bs-table-striped-color: #f8fbff !important;
+    --bs-table-hover-bg: #1e344b !important;
+    --bs-table-hover-color: #ffffff !important;
+
+    background: #122033 !important;
+    color: #f8fbff !important;
+}
+
+body.dark-mode .table > :not(caption) > * > * {
+    background: #122033 !important;
+    color: #f8fbff !important;
+    border-color: #30445a !important;
+}
+
+body.dark-mode .table thead th {
+    color: #ffffff !important;
+    background: #17283b !important;
+}
+
+body.dark-mode .table tbody td {
+    color: #f2f7fc !important;
+}
+
+body.dark-mode .table tbody tr:hover > * {
+    background: #1e344b !important;
+    color: #ffffff !important;
+}
+
+
+/* ---------- FORMS ---------- */
+
+body.dark-mode .form-label,
+body.dark-mode label {
+    color: #f8fbff !important;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select,
+body.dark-mode input,
+body.dark-mode textarea {
+    background: #17283b !important;
+    color: #f8fbff !important;
+    border-color: #40556b !important;
+}
+
+body.dark-mode .form-control::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #91a4b8 !important;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus,
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+    background: #1b3047 !important;
+    color: #ffffff !important;
+    border-color: #4d8dff !important;
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25) !important;
+}
+
+
+/* ---------- BUTTON / LINK CONTRAST ---------- */
+
+body.dark-mode .btn-outline-dark {
+    color: #ffffff !important;
+    border-color: #71849a !important;
+}
+
+body.dark-mode .btn-outline-dark:hover {
+    background: #ffffff !important;
+    color: #101c2c !important;
+}
+
+body.dark-mode .btn-secondary {
+    background: #536579 !important;
+    border-color: #536579 !important;
+    color: #ffffff !important;
+}
+
+
+/* ---------- THEME TOGGLE ---------- */
+
+.admin-navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #c9d5e2;
+    border-radius: 50%;
+
+    background: #ffffff;
+    color: #10233f;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+    transform: translateY(-1px);
+}
+
+body.dark-mode .theme-toggle {
+    background: #17283b !important;
+    color: #ffffff !important;
+    border-color: #53677d !important;
+}
+
+body.dark-mode .theme-toggle:hover {
+    background: #3b82f6 !important;
+    color: #ffffff !important;
+    border-color: #3b82f6 !important;
+}
+
+
+/* ---------- PAGINATION / DROPDOWNS / MODALS ---------- */
+
+body.dark-mode .dropdown-menu,
+body.dark-mode .modal-content {
+    background: #122033 !important;
+    color: #f8fbff !important;
+    border-color: #30445a !important;
+}
+
+body.dark-mode .dropdown-item {
+    color: #f8fbff !important;
+}
+
+body.dark-mode .dropdown-item:hover {
+    background: #1e344b !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer {
+    border-color: #30445a !important;
+}
+
+body.dark-mode .modal-title {
+    color: #ffffff !important;
+}
+
+body.dark-mode .list-group-item {
+    background: #122033 !important;
+    color: #f8fbff !important;
+    border-color: #30445a !important;
+}
+
+body.dark-mode .page-link {
+    background: #122033 !important;
+    color: #f8fbff !important;
+    border-color: #30445a !important;
+}
+
+
+/* ---------- TEXT UTILITY OVERRIDES ---------- */
+
+body.dark-mode .text-dark {
+    color: #f8fbff !important;
+}
+
+body.dark-mode .text-muted {
+    color: #aebfd1 !important;
+}
+
+body.dark-mode .text-secondary {
+    color: #c1cedb !important;
+}

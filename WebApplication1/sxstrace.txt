@@ -1,0 +1,62 @@
+﻿=================
+Begin Activation Context Generation.
+Input Parameter:
+	Flags = 0
+	ProcessorArchitecture = AMD64
+	CultureFallBacks = en-GB;en;en-US
+	ManifestPath = C:\Users\sabuv\source\repos\WebApplication1\WebApplication1\bin\Debug\net10.0\WebApplication1.exe
+	AssemblyDirectory = C:\Users\sabuv\source\repos\WebApplication1\WebApplication1\bin\Debug\net10.0\
+	Application Config File = 
+-----------------
+INFO: Parsing Manifest File C:\Users\sabuv\source\repos\WebApplication1\WebApplication1\bin\Debug\net10.0\WebApplication1.exe.
+	INFO: Manifest Definition Identity is (null).
+	ERROR: Line 0: XML Syntax error.
+ERROR: Activation Context generation failed.
+End Activation Context Generation.
+
+=================
+Begin Activation Context Generation.
+Input Parameter:
+	Flags = 0
+	ProcessorArchitecture = AMD64
+	CultureFallBacks = en-GB;en;en-US
+	ManifestPath = C:\WINDOWS\system32\cmd.exe
+	AssemblyDirectory = C:\WINDOWS\system32\
+	Application Config File = 
+-----------------
+INFO: Parsing Manifest File C:\WINDOWS\system32\cmd.exe.
+	INFO: Manifest Definition Identity is Microsoft.Windows.FileSystem.CMD,processorArchitecture="amd64",type="win32",version="5.1.0.0".
+INFO: Activation Context generation succeeded.
+End Activation Context Generation.
+
+=================
+Begin Activation Context Generation.
+Input Parameter:
+	Flags = 0
+	ProcessorArchitecture = AMD64
+	CultureFallBacks = en-GB;en;en-US
+	ManifestPath = C:\WINDOWS\system32\cmd.exe
+	AssemblyDirectory = C:\WINDOWS\system32\
+	Application Config File = 
+-----------------
+INFO: Parsing Manifest File C:\WINDOWS\system32\cmd.exe.
+	INFO: Manifest Definition Identity is Microsoft.Windows.FileSystem.CMD,processorArchitecture="amd64",type="win32",version="5.1.0.0".
+INFO: Activation Context generation succeeded.
+End Activation Context Generation.
+
+=================
+Begin Activation Context Generation.
+Input Parameter:
+	Flags = 0
+	ProcessorArchitecture = AMD64
+	CultureFallBacks = en-GB;en;en-US
+	ManifestPath = C:\Users\sabuv\source\repos\WebApplication1\WebApplication1\bin\Debug\net10.0\WebApplication1.exe
+	AssemblyDirectory = C:\Users\sabuv\source\repos\WebApplication1\WebApplication1\bin\Debug\net10.0\
+	Application Config File = 
+-----------------
+INFO: Parsing Manifest File C:\Users\sabuv\source\repos\WebApplication1\WebApplication1\bin\Debug\net10.0\WebApplication1.exe.
+	INFO: Manifest Definition Identity is (null).
+	ERROR: Line 0: XML Syntax error.
+ERROR: Activation Context generation failed.
+End Activation Context Generation.
+

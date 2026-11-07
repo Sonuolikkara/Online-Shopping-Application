@@ -1,0 +1,249 @@
+@model WebApplication1.Models.CustomerRegisterModel
+
+@{
+    ViewData["Title"] = "Create Account";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/customer-register.css" />
+}
+
+<div class="register-page">
+
+    <main class="register-container">
+
+        <!-- ================= HEADER ================= -->
+
+        <div class="register-header">
+
+            <div class="register-label">
+                Shopping Cart
+            </div>
+
+            <h1 class="register-title">
+                Create Account
+            </h1>
+
+            <p class="register-subtitle">
+                Create an account and start shopping
+            </p>
+
+        </div>
+
+
+        <!-- ================= REGISTER FORM ================= -->
+
+        <form id="registerForm"
+              method="post"
+              class="register-form"
+              action="#">
+
+            @Html.AntiForgeryToken()
+
+
+            <!-- ================= CUSTOM ERROR ================= -->
+
+            <div id="registerError"
+                 class="validation-summary">
+            </div>
+
+
+            <!-- ================= SERVER VALIDATION ================= -->
+
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="validation-summary server-validation">
+
+                    @foreach (var modelState in ViewData.ModelState.Values)
+                    {
+                        foreach (var error in modelState.Errors)
+                        {
+                            <div>
+                                @error.ErrorMessage
+                            </div>
+                        }
+                    }
+
+                </div>
+            }
+
+
+            <!-- ================= FIRST + LAST NAME ================= -->
+
+            <div class="form-row">
+
+                <!-- FIRST NAME -->
+
+                <div class="form-group">
+
+                    <label asp-for="FirstName"
+                           class="form-label">
+
+                        First Name
+
+                    </label>
+
+                    <input asp-for="FirstName"
+                           id="firstName"
+                           class="form-control"
+                           placeholder="Enter first name"
+                           autocomplete="given-name" />
+
+                </div>
+
+
+                <!-- LAST NAME -->
+
+                <div class="form-group">
+
+                    <label asp-for="LastName"
+                           class="form-label">
+
+                        Last Name
+
+                    </label>
+
+                    <input asp-for="LastName"
+                           id="lastName"
+                           class="form-control"
+                           placeholder="Enter last name"
+                           autocomplete="family-name" />
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= EMAIL ================= -->
+
+            <div class="form-group">
+
+                <label asp-for="Email"
+                       class="form-label">
+
+                    Email
+
+                </label>
+
+                <input asp-for="Email"
+                       id="registerEmail"
+                       class="form-control"
+                       type="email"
+                       placeholder="Enter your email"
+                       autocomplete="email" />
+
+            </div>
+
+
+            <!-- ================= PASSWORD ================= -->
+
+            <div class="form-group">
+
+                <label asp-for="Password"
+                       class="form-label">
+
+                    Password
+
+                </label>
+
+                <input asp-for="Password"
+                       id="registerPassword"
+                       class="form-control"
+                       type="password"
+                       placeholder="Enter password"
+                       autocomplete="new-password" />
+
+            </div>
+
+
+            <!-- ================= PHONE ================= -->
+
+            <div class="form-group">
+
+                <label asp-for="Phone"
+                       class="form-label">
+
+                    Phone
+
+                </label>
+
+                <input asp-for="Phone"
+                       id="phone"
+                       class="form-control"
+                       type="tel"
+                       placeholder="Enter phone number"
+                       autocomplete="tel" />
+
+            </div>
+
+
+            <!-- ================= ADDRESS ================= -->
+
+            <div class="form-group">
+
+                <label asp-for="Address"
+                       class="form-label">
+
+                    Address
+
+                </label>
+
+                <textarea asp-for="Address"
+                          id="address"
+                          class="form-control"
+                          rows="3"
+                          placeholder="Enter your address"
+                          autocomplete="street-address"></textarea>
+
+            </div>
+
+
+            <!-- ================= REGISTER BUTTON ================= -->
+
+            <button type="submit"
+                    class="register-button">
+
+                CREATE ACCOUNT
+
+            </button>
+
+        </form>
+
+
+        <!-- ================= LOGIN ================= -->
+
+        <div class="login-section">
+
+            <p class="login-text">
+                Already have an account?
+            </p>
+
+            <a asp-controller="CustomerLogin"
+               asp-action="Index"
+               class="login-link">
+
+                LOGIN
+
+            </a>
+
+        </div>
+
+
+        <!-- ================= BACK HOME ================= -->
+
+        <a asp-controller="UserHome"
+           asp-action="Index"
+           class="back-home">
+
+            ← Back to Home
+
+        </a>
+
+    </main>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/customer-register.js"></script>
+}

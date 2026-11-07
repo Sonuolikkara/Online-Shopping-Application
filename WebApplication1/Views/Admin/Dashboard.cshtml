@@ -1,0 +1,554 @@
+@model WebApplication1.Models.AdminDashboardViewModel
+
+@using System.Text.Json
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+
+    var orderStatusData = JsonSerializer.Serialize(new
+    {
+        Delivered = Model.DeliveredOrderCount,
+        Processing = Model.ProcessingOrderCount,
+        Pending = Model.PendingOrderCount
+    });
+
+    var orderLabels = JsonSerializer.Serialize(
+        Model.RecentOrders
+            .Select(o => $"Order #{o.OrderID}")
+            .ToList()
+    );
+
+    var orderAmounts = JsonSerializer.Serialize(
+        Model.RecentOrders
+            .Select(o => o.TotalAmount ?? 0)
+            .ToList()
+    );
+}
+
+@section Styles {
+
+    <link rel="stylesheet"
+          href="~/css/admin-dashboard.css" />
+
+}
+
+<div class="container-fluid">
+
+    <!-- =========================================================
+         DASHBOARD HEADER
+         ========================================================= -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="mb-1">
+                Dashboard
+            </h2>
+
+            <p class="text-muted mb-0">
+                Overview of your shopping cart system
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         SUMMARY CARDS
+         ========================================================= -->
+
+    <div class="row g-4">
+
+
+        <!-- PRODUCTS -->
+
+        <div class="col-12 col-md-6 col-xl-3">
+
+            <div class="card dashboard-card h-100">
+
+                <div class="card-body">
+
+                    <div class="dashboard-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+
+                    <div class="dashboard-content">
+
+                        <p class="dashboard-label">
+                            Products
+                        </p>
+
+                        <h2 class="dashboard-value">
+                            @Model.ProductCount
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CATEGORIES -->
+
+        <div class="col-12 col-md-6 col-xl-3">
+
+            <div class="card dashboard-card h-100">
+
+                <div class="card-body">
+
+                    <div class="dashboard-icon">
+                        <i class="bi bi-tags"></i>
+                    </div>
+
+                    <div class="dashboard-content">
+
+                        <p class="dashboard-label">
+                            Categories
+                        </p>
+
+                        <h2 class="dashboard-value">
+                            @Model.CategoryCount
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CUSTOMERS -->
+
+        <div class="col-12 col-md-6 col-xl-3">
+
+            <div class="card dashboard-card h-100">
+
+                <div class="card-body">
+
+                    <div class="dashboard-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+
+                    <div class="dashboard-content">
+
+                        <p class="dashboard-label">
+                            Customers
+                        </p>
+
+                        <h2 class="dashboard-value">
+                            @Model.CustomerCount
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ORDERS -->
+
+        <div class="col-12 col-md-6 col-xl-3">
+
+            <div class="card dashboard-card h-100">
+
+                <div class="card-body">
+
+                    <div class="dashboard-icon">
+                        <i class="bi bi-cart-check"></i>
+                    </div>
+
+                    <div class="dashboard-content">
+
+                        <p class="dashboard-label">
+                            Orders
+                        </p>
+
+                        <h2 class="dashboard-value">
+                            @Model.OrderCount
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         CHARTS
+         ========================================================= -->
+
+    <div class="row g-4 mt-1">
+
+
+        <!-- ORDER STATUS CHART -->
+
+        <div class="col-12 col-xl-5">
+
+            <div class="card dashboard-section-card h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+
+                        <div>
+
+                            <h5 class="dashboard-section-title mb-1">
+                                Order Status
+                            </h5>
+
+                            <p class="text-muted small mb-0">
+                                Current order status distribution
+                            </p>
+
+                        </div>
+
+                        <i class="bi bi-pie-chart dashboard-section-icon"></i>
+
+                    </div>
+
+
+                    <div class="dashboard-chart-container dashboard-doughnut-container">
+
+                        <canvas id="orderStatusChart"></canvas>
+
+                    </div>
+
+
+                    <!-- STATUS SUMMARY -->
+
+                    <div class="dashboard-status-summary">
+
+
+                        <div class="dashboard-status-item">
+
+                            <span class="dashboard-status-dot status-delivered"></span>
+
+                            <span>
+                                Delivered
+                            </span>
+
+                            <strong>
+                                @Model.DeliveredOrderCount
+                            </strong>
+
+                        </div>
+
+
+                        <div class="dashboard-status-item">
+
+                            <span class="dashboard-status-dot status-processing"></span>
+
+                            <span>
+                                Processing
+                            </span>
+
+                            <strong>
+                                @Model.ProcessingOrderCount
+                            </strong>
+
+                        </div>
+
+
+                        <div class="dashboard-status-item">
+
+                            <span class="dashboard-status-dot status-pending"></span>
+
+                            <span>
+                                Pending
+                            </span>
+
+                            <strong>
+                                @Model.PendingOrderCount
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ORDER AMOUNT CHART -->
+
+        <div class="col-12 col-xl-7">
+
+            <div class="card dashboard-section-card h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+
+                        <div>
+
+                            <h5 class="dashboard-section-title mb-1">
+                                Order Amount Overview
+                            </h5>
+
+                            <p class="text-muted small mb-0">
+                                Amount of the latest orders
+                            </p>
+
+                        </div>
+
+                        <i class="bi bi-bar-chart-line dashboard-section-icon"></i>
+
+                    </div>
+
+
+                    <div class="dashboard-chart-container">
+
+                        <canvas id="orderAmountChart"></canvas>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         RECENT ORDERS + LOW STOCK
+         ========================================================= -->
+
+    <div class="row g-4 mt-1">
+
+
+        <!-- RECENT ORDERS -->
+
+        <div class="col-12 col-xl-8">
+
+            <div class="card dashboard-section-card h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+
+                        <div>
+
+                            <h5 class="dashboard-section-title mb-1">
+                                Recent Orders
+                            </h5>
+
+                            <p class="text-muted small mb-0">
+                                Latest orders placed in the system
+                            </p>
+
+                        </div>
+
+                        <i class="bi bi-receipt dashboard-section-icon"></i>
+
+                    </div>
+
+
+                    @if (Model.RecentOrders.Any())
+                    {
+                        <div class="table-responsive">
+
+                            <table class="table dashboard-table align-middle mb-0">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>Order ID</th>
+                                        <th>Customer</th>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody>
+
+                                    @foreach (var order in Model.RecentOrders)
+                                    {
+                                        <tr>
+
+                                            <td>
+
+                                                <strong>
+                                                    #@order.OrderID
+                                                </strong>
+
+                                            </td>
+
+                                            <td>
+                                                @(order.CustomerID?.ToString() ?? "—")
+                                            </td>
+
+                                            <td>
+                                                @order.OrderDate.ToString("dd MMM yyyy")
+                                            </td>
+
+                                            <td>
+                                                @(order.TotalAmount?.ToString("C") ?? "—")
+                                            </td>
+
+                                            <td>
+
+                                                <span class="dashboard-status-badge
+                                                    @(order.Status?.Equals(
+                                                        "Delivered",
+                                                        StringComparison.OrdinalIgnoreCase) == true
+                                                        ? "status-badge-delivered"
+                                                        : order.Status?.Equals(
+                                                            "Processing",
+                                                            StringComparison.OrdinalIgnoreCase) == true
+                                                            ? "status-badge-processing"
+                                                            : "status-badge-pending")">
+
+                                                    @(string.IsNullOrWhiteSpace(order.Status)
+                                                        ? "—"
+                                                        : order.Status)
+
+                                                </span>
+
+                                            </td>
+
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="dashboard-empty-state">
+                            No recent orders available.
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOW STOCK -->
+
+        <div class="col-12 col-xl-4">
+
+            <div class="card dashboard-section-card h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+
+                        <div>
+
+                            <h5 class="dashboard-section-title mb-1">
+                                Low Stock Products
+                            </h5>
+
+                            <p class="text-muted small mb-0">
+                                Products with limited stock
+                            </p>
+
+                        </div>
+
+                        <i class="bi bi-box-seam dashboard-section-icon"></i>
+
+                    </div>
+
+
+                    <div class="dashboard-stock-list">
+
+                        @if (Model.LowStockProducts.Any())
+                        {
+                            foreach (var product in Model.LowStockProducts)
+                            {
+                                <div class="dashboard-stock-row">
+
+                                    <div>
+
+                                        <span class="dashboard-stock-name">
+                                            @product.ProductName
+                                        </span>
+
+                                    </div>
+
+                                    <span class="dashboard-stock-value">
+                                        @product.Stock left
+                                    </span>
+
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="dashboard-empty-state">
+                                No low-stock products.
+                            </div>
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     CHART DATA
+     ========================================================= -->
+
+<script id="dashboardChartData"
+        type="application/json">
+
+{
+    "orderStatus": @Html.Raw(orderStatusData),
+    "orderLabels": @Html.Raw(orderLabels),
+    "orderAmounts": @Html.Raw(orderAmounts)
+}
+
+</script>
+
+
+@section Scripts {
+
+    <!-- Chart.js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Dashboard JavaScript -->
+
+    <script src="~/js/admin-dashboard.js"></script>
+
+}

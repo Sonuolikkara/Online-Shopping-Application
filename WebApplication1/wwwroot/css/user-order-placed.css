@@ -1,0 +1,159 @@
+﻿.order-success-page {
+    min-height: 100vh;
+    background: #d9cfcb;
+    padding: 60px 20px;
+}
+
+.order-success-container {
+    width: min(100%, 700px);
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 55px 50px;
+    text-align: center;
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #4f6b52;
+    border-radius: 50%;
+    color: #4f6b52;
+    font-size: 28px;
+}
+
+.success-label {
+    margin-bottom: 8px;
+    color: #706d69;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.success-title {
+    margin: 0 0 12px;
+    font-family: "Playfair Display",
+                 Georgia,
+                 serif;
+    font-size: 42px;
+    line-height: 1.1;
+    font-weight: 500;
+    color: #171717;
+}
+
+.success-text {
+    margin: 0 auto 35px;
+    max-width: 430px;
+    color: #706d69;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.order-details {
+    margin-bottom: 35px;
+    border-top: 1px solid #d8d5d2;
+    border-bottom: 1px solid #d8d5d2;
+}
+
+.order-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5px;
+    border-bottom: 1px solid #d8d5d2;
+    font-size: 11px;
+}
+
+.order-row:last-child {
+    border-bottom: none;
+}
+
+.order-label {
+    color: #706d69;
+}
+
+.order-value {
+    color: #171717;
+    font-weight: 600;
+}
+
+.order-status {
+    color: #4f6b52;
+}
+
+.order-total {
+    font-size: 14px;
+}
+
+.order-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.continue-button {
+    display: inline-block;
+    padding: 13px 25px;
+    background: #171717;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 0.3px;
+}
+
+.continue-button:hover {
+    background: #333333;
+    color: #ffffff;
+}
+
+.orders-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #ffffff;
+    color: #171717;
+    border: 1px solid #171717;
+    text-decoration: none;
+    font-size: 10px;
+}
+
+.orders-button:hover {
+    background: #f4f1ef;
+    color: #171717;
+}
+
+.order-loading {
+    color: #706d69;
+    font-size: 11px;
+}
+
+@media (max-width: 600px) {
+
+    .order-success-page {
+        padding: 30px 15px;
+    }
+
+    .order-success-container {
+        padding: 40px 25px;
+    }
+
+    .success-title {
+        font-size: 34px;
+    }
+
+    .order-row {
+        padding: 13px 0;
+    }
+
+    .order-actions {
+        flex-direction: column;
+    }
+
+    .continue-button,
+    .orders-button {
+        width: 100%;
+        text-align: center;
+    }
+}

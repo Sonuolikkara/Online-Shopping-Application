@@ -1,0 +1,615 @@
+    /* =========================================================
+       SHOP PAGE
+       ========================================================= */
+
+    .shop-page {
+        min-height: 100vh;
+        background: #d9cfcb;
+        padding-bottom: 50px;
+    }
+
+
+    /* =========================================================
+       MAIN SHOP CONTAINER
+       ========================================================= */
+
+    .shop-container {
+        width: min(100% - 80px, 1100px);
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 35px 35px 55px;
+    }
+
+
+    /* =========================================================
+       PAGE TITLE
+       ========================================================= */
+
+    .shop-title {
+        margin: 0 0 8px;
+
+        text-align: center;
+
+        font-family: "Playfair Display",
+                     Georgia,
+                     serif;
+
+        font-size: 38px;
+        line-height: 1.1;
+        font-weight: 500;
+
+        color: #171717;
+    }
+
+    .shop-subtitle {
+        margin: 0 0 30px;
+
+        text-align: center;
+
+        color: #706d69;
+
+        font-size: 12px;
+    }
+
+
+    /* =========================================================
+       SHOP NOW BAR
+       ========================================================= */
+
+    .shop-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+
+        border-bottom: 1px solid #d8d5d2;
+    }
+
+    .shop-now-label {
+        font-family: "Playfair Display",
+                     Georgia,
+                     serif;
+
+        font-size: 17px;
+        color: #171717;
+    }
+
+    .product-count {
+        color: #706d69;
+        font-size: 10px;
+    }
+
+
+    /* =========================================================
+       PRODUCT SEARCH
+       ========================================================= */
+
+    .product-search-form {
+        margin: 0;
+    }
+
+    .product-search-box {
+        display: flex;
+        align-items: center;
+
+        width: 360px;
+
+        border: 1px solid #d8d5d2;
+
+        background: #ffffff;
+    }
+
+    .product-search-box > i {
+        margin-left: 12px;
+
+        color: #706d69;
+
+        font-size: 12px;
+    }
+
+    .product-search-box input {
+        flex: 1;
+
+        min-width: 0;
+
+        border: none;
+        outline: none;
+
+        padding: 9px 10px;
+
+        background: transparent;
+
+        color: #171717;
+
+        font-family: "DM Sans",
+                     sans-serif;
+
+        font-size: 10px;
+    }
+
+    .product-search-box input::placeholder {
+        color: #9a9692;
+    }
+
+    .product-search-box button {
+        border: none;
+
+        padding: 9px 13px;
+
+        background: #171717;
+
+        color: #ffffff;
+
+        font-size: 9px;
+
+        cursor: pointer;
+    }
+
+    .product-search-box button:hover {
+        background: #333333;
+    }
+
+    .clear-search {
+        color: #706d69;
+
+        text-decoration: none;
+
+        padding: 0 7px;
+
+        font-size: 12px;
+    }
+
+    .clear-search:hover {
+        color: #171717;
+    }
+
+
+    /* =========================================================
+       SEARCH RESULT MESSAGE
+       ========================================================= */
+
+    .search-result-message {
+        margin: 18px 0;
+
+        padding: 12px;
+
+        border: 1px solid #d8d5d2;
+
+        background: #faf9f8;
+
+        color: #706d69;
+
+        text-align: center;
+
+        font-size: 10px;
+    }
+
+
+    /* =========================================================
+       PRODUCT LAYOUT
+       ========================================================= */
+
+    .product-layout {
+        display: grid;
+
+        grid-template-columns: 1.15fr 1fr;
+
+        gap: 10px;
+    }
+
+    .product-layout.search-results {
+        grid-template-columns: 1fr;
+    }
+
+    .product-layout.search-results .featured-product {
+        grid-row: auto;
+    }
+
+    .product-layout.search-results .featured-product .product-image {
+        height: 280px;
+    }
+
+    .product-layout.search-results .featured-product .product-image img {
+        object-fit: contain;
+        background: #ffffff;
+    }
+
+
+    /* =========================================================
+       PRODUCT CARD
+       ========================================================= */
+
+    .product-card {
+        min-width: 0;
+
+        background: #ffffff;
+
+        border: 1px solid #e2dfdc;
+
+        overflow: hidden;
+
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .product-card:hover {
+        transform: translateY(-2px);
+
+        box-shadow:
+            0 8px 20px rgba(0, 0, 0, 0.07);
+    }
+
+
+    /* =========================================================
+       FEATURED PRODUCT
+       ========================================================= */
+
+    .featured-product {
+        grid-row: span 2;
+    }
+
+    .featured-product .product-image {
+        height: 360px;
+    }
+
+
+    /* =========================================================
+       SMALL PRODUCTS
+       ========================================================= */
+
+    .small-products {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .product-layout.search-results .small-products {
+        display: none;
+    }
+
+    .small-products .product-image {
+        height: 175px;
+    }
+
+
+    /* =========================================================
+       PRODUCT IMAGE
+       ========================================================= */
+
+    .product-image {
+        position: relative;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        background: #eee9e5;
+
+        overflow: hidden;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        display: block;
+    }
+
+    .image-label {
+        position: relative;
+
+        z-index: 2;
+
+        padding: 6px 9px;
+
+        background: rgba(255, 255, 255, 0.85);
+
+        color: #706d69;
+
+        font-size: 9px;
+
+        letter-spacing: 0.5px;
+    }
+
+
+    /* =========================================================
+       PRODUCT INFORMATION
+       ========================================================= */
+
+    .product-info {
+        padding: 10px 11px 12px;
+    }
+
+    .product-name {
+        margin: 0 0 5px;
+
+        font-family: "Playfair Display",
+                     Georgia,
+                     serif;
+
+        font-size: 15px;
+
+        font-weight: 500;
+
+        color: #171717;
+    }
+
+    .product-description {
+        margin: 0 0 9px;
+
+        min-height: 30px;
+
+        color: #706d69;
+
+        font-size: 9px;
+
+        line-height: 1.45;
+    }
+
+
+    /* =========================================================
+       PRICE / STOCK
+       ========================================================= */
+
+    .product-meta {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        padding-top: 7px;
+
+        border-top: 1px solid #d8d5d2;
+    }
+
+    .product-price {
+        font-size: 11px;
+
+        font-weight: 600;
+
+        color: #171717;
+    }
+
+    .product-stock {
+        font-size: 8px;
+
+        color: #706d69;
+    }
+
+    .out-of-stock {
+        color: #a94442;
+    }
+
+
+    /* =========================================================
+       VIEW PRODUCT
+       ========================================================= */
+
+    .view-product {
+        display: block;
+
+        margin-top: 9px;
+
+        padding: 8px 10px;
+
+        background: #171717;
+
+        color: #ffffff;
+
+        text-align: center;
+
+        text-decoration: none;
+
+        font-size: 9px;
+
+        transition: background 0.2s ease;
+    }
+
+    .view-product:hover {
+        background: #333333;
+
+        color: #ffffff;
+    }
+
+
+    /* =========================================================
+       EMPTY PRODUCTS
+       ========================================================= */
+
+    .empty-products {
+        padding: 80px 20px;
+
+        text-align: center;
+
+        border: 1px solid #d8d5d2;
+
+        color: #706d69;
+    }
+
+
+    /* =========================================================
+       SHOPPING PROMO
+       ========================================================= */
+
+    .shopping-promo {
+        display: grid;
+
+        grid-template-columns: 0.8fr 1.2fr;
+
+        min-height: 180px;
+
+        margin-top: 35px;
+
+        background: #f6f45b;
+
+        overflow: hidden;
+    }
+
+    .shopping-promo-content {
+        padding: 30px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+    }
+
+    .shopping-promo-label {
+        margin: 0 0 4px;
+
+        font-family: "Playfair Display",
+                     Georgia,
+                     serif;
+
+        font-size: 17px;
+    }
+
+    .shopping-promo-title {
+        margin: 0 0 10px;
+
+        font-family: "Playfair Display",
+                     Georgia,
+                     serif;
+
+        font-size: 27px;
+
+        font-weight: 500;
+    }
+
+    .shopping-promo-text {
+        max-width: 280px;
+
+        margin: 0;
+
+        font-size: 10px;
+
+        line-height: 1.5;
+    }
+
+    .shopping-promo-visual {
+        position: relative;
+
+        min-height: 180px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #b9aaa2,
+                #8e7d73
+            );
+    }
+
+    .shopping-promo-visual::before {
+        content: "SHOPPING CART";
+
+        position: absolute;
+
+        left: 50%;
+        top: 50%;
+
+        transform: translate(-50%, -50%);
+
+        padding: 12px 18px;
+
+        background: rgba(255, 255, 255, 0.9);
+
+        font-family: "Playfair Display",
+                     Georgia,
+                     serif;
+
+        font-size: 17px;
+
+        white-space: nowrap;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+        .shop-container {
+            width: calc(100% - 30px);
+
+            padding: 30px 20px 45px;
+        }
+
+        .shop-title {
+            font-size: 32px;
+        }
+
+        .product-layout {
+            grid-template-columns: 1fr;
+        }
+
+        .featured-product {
+            grid-row: auto;
+        }
+
+        .featured-product .product-image {
+            height: 350px;
+        }
+
+        .product-search-box {
+            width: 300px;
+        }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+        .shop-container {
+            width: 100%;
+
+            padding: 25px 15px 40px;
+        }
+
+        .shop-title {
+            font-size: 28px;
+        }
+
+        .shop-toolbar {
+            align-items: flex-start;
+
+            flex-direction: column;
+
+            gap: 5px;
+        }
+
+        .product-search-form {
+            width: 100%;
+        }
+
+        .product-search-box {
+            width: 100%;
+        }
+
+        .small-products {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .small-products .product-image {
+            height: 150px;
+        }
+
+        .featured-product .product-image {
+            height: 280px;
+        }
+
+        .shopping-promo {
+            grid-template-columns: 1fr;
+        }
+
+    }

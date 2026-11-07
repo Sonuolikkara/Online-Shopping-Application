@@ -1,0 +1,173 @@
+@{
+    ViewData["Title"] = "Your Cart";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/user-cart.css" />
+}
+
+
+
+
+<div class="cart-page">
+
+    <main class="cart-container">
+
+        <section class="cart-heading">
+
+            <div class="cart-label">
+                Shopping Cart
+            </div>
+
+            <h1 class="cart-title">
+                Your Cart
+            </h1>
+
+            <p class="cart-subtitle">
+                Review your selected products before checkout.
+            </p>
+
+        </section>
+
+
+        <div id="cartMessage"
+             class="cart-message"
+             style="display:none;">
+        </div>
+
+
+        <div id="cartLoading"
+             class="loading-cart">
+
+            Loading cart...
+
+        </div>
+
+
+        <section id="emptyCart"
+                 class="empty-cart"
+                 style="display:none;">
+
+            <div class="empty-icon">
+
+                <i class="bi bi-cart3"></i>
+
+            </div>
+
+            <h2 class="empty-title">
+                Your Cart is Empty
+            </h2>
+
+            <p class="empty-text">
+                You haven't added any products to your cart yet.
+            </p>
+
+            <a href="/UserProducts"
+               class="checkout-button"
+               style="display:inline-block;width:auto;padding:14px 28px;">
+
+                SHOP NOW
+
+            </a>
+
+        </section>
+
+
+        <section id="cartContent"
+                 class="cart-content"
+                 style="display:none;">
+
+            <div id="cartItems"
+                 class="cart-items">
+            </div>
+
+
+            <aside class="cart-summary">
+
+                <h2 class="summary-title">
+                    Order Summary
+                </h2>
+
+
+                <div class="summary-row">
+
+                    <span class="summary-label">
+                        Items
+                    </span>
+
+                    <span id="summaryItems"
+                          class="summary-value">
+                        0
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span class="summary-label">
+                        Subtotal
+                    </span>
+
+                    <span id="summarySubtotal"
+                          class="summary-value">
+                        ₹0.00
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span class="summary-label">
+                        Delivery
+                    </span>
+
+                    <span class="summary-value">
+                        FREE
+                    </span>
+
+                </div>
+
+
+                <div class="summary-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span id="summaryTotal">
+                        ₹0.00
+                    </span>
+
+                </div>
+
+
+                <button type="button"
+                        id="checkoutButton"
+                        class="checkout-button">
+
+                    PROCEED TO CHECKOUT
+
+                </button>
+
+
+                <a href="/UserProducts"
+                   class="continue-shopping">
+
+                    ← Continue Shopping
+
+                </a>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/user-cart.js"></script>
+}

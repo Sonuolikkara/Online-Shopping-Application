@@ -1,0 +1,102 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>NU1901;NU1903</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Models\Admin.cs" />
+    <Content Include="Models\AdminDashboardViewModel.cs" />
+    <Content Include="Models\CartItemViewModel.cs" />
+    <Content Include="Models\CheckoutViewModel.cs" />
+    <Content Include="Models\CustomerLoginModel.cs" />
+    <Content Include="Models\CustomerRegisterModel.cs" />
+    <Content Include="Models\GuestCartItem.cs" />
+    <Content Include="Models\LoginModel.cs" />
+    <Content Include="Models\LoginResponseModel.cs" />
+    <Content Include="Models\Product.cs" />
+    <Content Include="Models\Student.cs" />
+    <Content Include="Services\AuthService\AuthService.cs" />
+    <Content Include="Services\BatchService\BatchService.cs" />
+    <Content Include="Services\BatchService\IBatchService.cs" />
+    <Content Include="Services\CartItemService\CartItemService.Create.cs" />
+    <Content Include="Services\CartItemService\CartItemService.cs" />
+    <Content Include="Services\CartItemService\CartItemService.Delete.cs" />
+    <Content Include="Services\CartItemService\CartItemService.Get.cs" />
+    <Content Include="Services\CartItemService\CartItemService.Update.cs" />
+    <Content Include="Services\CartItemService\ICartItemService.cs" />
+    <Content Include="Services\CategoryService\CategoryService.Create.cs" />
+    <Content Include="Services\CategoryService\CategoryService.cs" />
+    <Content Include="Services\CategoryService\CategoryService.Delete.cs" />
+    <Content Include="Services\CategoryService\CategoryService.Get.cs" />
+    <Content Include="Services\CategoryService\CategoryService.Update.cs" />
+    <Content Include="Services\CategoryService\ICategoryService.cs" />
+    <Content Include="Services\CustomerService\CustomerService.Create.cs" />
+    <Content Include="Services\CustomerService\CustomerService.cs" />
+    <Content Include="Services\CustomerService\CustomerService.Delete.cs" />
+    <Content Include="Services\CustomerService\CustomerService.Get.cs" />
+    <Content Include="Services\CustomerService\CustomerService.Update.cs" />
+    <Content Include="Services\CustomerService\ICustomerService.cs" />
+    <Content Include="Services\AuthService\IAuthService.cs" />
+    <Content Include="Services\IStudentService.cs" />
+    <Content Include="Services\OrderItemService\IOrderItemService.cs" />
+    <Content Include="Services\OrderItemService\OrderItemService.Create.cs" />
+    <Content Include="Services\OrderItemService\OrderItemService.cs" />
+    <Content Include="Services\OrderItemService\OrderItemService.Delete.cs" />
+    <Content Include="Services\OrderItemService\OrderItemService.Get.cs" />
+    <Content Include="Services\OrderItemService\OrderItemService.Update.cs" />
+    <Content Include="Services\OrderService\IOrderService.cs" />
+    <Content Include="Services\OrderService\OrderService.Create.cs" />
+    <Content Include="Services\OrderService\OrderService.cs" />
+    <Content Include="Services\OrderService\OrderService.Delete.cs" />
+    <Content Include="Services\OrderService\OrderService.Get.cs" />
+    <Content Include="Services\OrderService\OrderService.Update.cs" />
+    <Content Include="Services\PaymentService\IPaymentService.cs" />
+    <Content Include="Services\PaymentService\PaymentService.Create.cs" />
+    <Content Include="Services\PaymentService\PaymentService.cs" />
+    <Content Include="Services\PaymentService\PaymentService.Delete.cs" />
+    <Content Include="Services\PaymentService\PaymentService.Get.cs" />
+    <Content Include="Services\PaymentService\PaymentService.Update.cs" />
+    <Content Include="Services\ProductService\IProductService.cs" />
+    <Content Include="Services\ProductService\ProductService.Create.cs" />
+    <Content Include="Services\ProductService\ProductService.cs" />
+    <Content Include="Services\ProductService\ProductService.Delete.cs" />
+    <Content Include="Services\ProductService\ProductService.Export.cs" />
+    <Content Include="Services\ProductService\ProductService.Get.cs" />
+    <Content Include="Services\ProductService\ProductService.Import.cs" />
+    <Content Include="Services\ProductService\ProductService.Update.cs" />
+    <Content Include="Services\StudentService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.79" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.8.25" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.8.25" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="10.0.11" />
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+    <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\AdminProducts\" />
+    <Folder Include="Views\AdminLogin\" />
+    <Folder Include="Views\AdminCategories\" />
+    <Folder Include="Views\AdminOrders\" />
+    <Folder Include="Views\UserWishlist\" />
+    <Folder Include="Views\UserHome\" />
+    <Folder Include="Views\UserProducts\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+</Project>

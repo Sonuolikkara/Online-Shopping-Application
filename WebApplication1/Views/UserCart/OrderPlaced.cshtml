@@ -1,0 +1,128 @@
+@{
+    ViewData["Title"] = "Order Placed";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+    var orderId =
+        Context.Request.RouteValues["id"];
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/user-order-placed.css" />
+}
+
+<div class="order-success-page"
+     id="orderPage"
+     data-order-id="@orderId">
+
+    <main class="order-success-container">
+
+        <div class="success-icon">
+
+            <i class="bi bi-check-lg"></i>
+
+        </div>
+
+        <div class="success-label">
+            Shopping Cart
+        </div>
+
+        <h1 class="success-title">
+            Order Placed!
+        </h1>
+
+        <p class="success-text">
+
+            Thank you for your order.
+            Your order has been placed successfully
+            and is now being processed.
+
+        </p>
+
+        <div id="orderLoading"
+             class="order-loading">
+
+            Loading order details...
+
+        </div>
+
+        <div id="orderDetails"
+             class="order-details"
+             style="display:none;">
+
+            <div class="order-row">
+
+                <span class="order-label">
+                    Order ID
+                </span>
+
+                <span id="orderId"
+                      class="order-value">
+                </span>
+
+            </div>
+
+            <div class="order-row">
+
+                <span class="order-label">
+                    Order Date
+                </span>
+
+                <span id="orderDate"
+                      class="order-value">
+                </span>
+
+            </div>
+
+            <div class="order-row">
+
+                <span class="order-label">
+                    Status
+                </span>
+
+                <span id="orderStatus"
+                      class="order-value">
+                </span>
+
+            </div>
+
+            <div class="order-row">
+
+                <span class="order-label">
+                    Total Amount
+                </span>
+
+                <span id="orderTotal"
+                      class="order-value order-total">
+                </span>
+
+            </div>
+
+        </div>
+
+        <div id="orderActions"
+             class="order-actions"
+             style="display:none;">
+
+            <a href="/UserProducts"
+               class="continue-button">
+
+                CONTINUE SHOPPING
+
+            </a>
+
+            <a href="/Cart"
+               class="orders-button">
+
+                BACK TO CART
+
+            </a>
+
+        </div>
+
+    </main>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/user-order-placed.js"></script>
+}

@@ -1,0 +1,158 @@
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+    var productId =
+        Context.Request.Query["productId"].ToString();
+
+    var quantity =
+        Context.Request.Query["quantity"].ToString();
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/user-checkout.css" />
+}
+
+<div class="checkout-page">
+
+    <main class="checkout-container">
+
+        <h1 class="checkout-title">
+            Checkout
+        </h1>
+
+        <p class="checkout-subtitle">
+            Complete your details to place your order.
+        </p>
+
+        <div id="checkoutMessage"
+             class="checkout-message">
+        </div>
+
+        <form id="checkoutForm"
+              class="checkout-form">
+
+            <input type="hidden"
+                   id="productId"
+                   value="@productId" />
+
+            <input type="hidden"
+                   id="quantity"
+                   value="@quantity" />
+
+            <!-- ADDRESS -->
+
+            <div class="form-group">
+
+                <label for="address"
+                       class="form-label">
+
+                    Delivery Address
+
+                </label>
+
+                <textarea id="address"
+                          class="form-control"
+                          rows="4"
+                          placeholder="Enter your delivery address"></textarea>
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="form-group">
+
+                <label for="phone"
+                       class="form-label">
+
+                    Phone Number
+
+                </label>
+
+                <input id="phone"
+                       class="form-control"
+                       type="tel"
+                       placeholder="Enter your phone number" />
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <h2 class="payment-title">
+                Payment Method
+            </h2>
+
+
+            <label class="payment-option">
+
+                <input type="radio"
+                       name="paymentMethod"
+                       value="Cash on Delivery" />
+
+                <span>
+                    Cash on Delivery
+                </span>
+
+            </label>
+
+
+            <label class="payment-option">
+
+                <input type="radio"
+                       name="paymentMethod"
+                       value="UPI" />
+
+                <span>
+                    UPI
+                </span>
+
+            </label>
+
+
+            <label class="payment-option">
+
+                <input type="radio"
+                       name="paymentMethod"
+                       value="Card" />
+
+                <span>
+                    Card
+                </span>
+
+            </label>
+
+
+            <span id="paymentValidation"
+                  class="validation-message">
+            </span>
+
+
+            <!-- PLACE ORDER -->
+
+            <button type="submit"
+                    id="placeOrderButton"
+                    class="place-order-button">
+
+                PLACE ORDER
+
+            </button>
+
+
+            <a href="/Cart"
+               class="back-cart">
+
+                ← Back to Cart
+
+            </a>
+
+        </form>
+
+    </main>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/user-checkout.js"></script>
+}

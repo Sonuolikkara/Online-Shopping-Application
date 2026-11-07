@@ -1,0 +1,376 @@
+/* =========================================================
+   ADMIN DASHBOARD
+   ========================================================= */
+
+.dashboard-card {
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    background: #ffffff;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-card .card-body {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.dashboard-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+
+    border-radius: 10px;
+
+    background: #212529;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+}
+
+.dashboard-content {
+    min-width: 0;
+}
+
+.dashboard-label {
+    margin: 0 0 4px 0;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    color: #6c757d;
+
+    white-space: nowrap;
+}
+
+.dashboard-value {
+    margin: 0;
+
+    font-size: 30px;
+    font-weight: 600;
+
+    color: #212529;
+}
+
+
+/* =========================================================
+   DASHBOARD SECTION CARDS
+   ========================================================= */
+
+.dashboard-section-card {
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    background: #ffffff;
+
+    transition: all 0.2s ease;
+}
+
+.dashboard-section-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-section-card .card-body {
+    padding: 22px;
+}
+
+
+/* =========================================================
+   DASHBOARD SECTION HEADINGS
+   ========================================================= */
+
+.dashboard-section-title {
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #212529;
+}
+
+.dashboard-section-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #212529;
+    color: #ffffff;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   ORDERS OVERVIEW
+   ========================================================= */
+
+.dashboard-order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashboard-order-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 14px;
+
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    transition: background-color 0.2s ease;
+}
+
+.dashboard-order-row:hover {
+    background-color: #f8f9fa;
+}
+
+.dashboard-order-label {
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #212529;
+}
+
+.dashboard-order-amount {
+    font-size: 15px;
+    font-weight: 600;
+
+    color: #212529;
+}
+
+
+/* =========================================================
+   LOW STOCK PRODUCTS
+   ========================================================= */
+
+.dashboard-stock-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashboard-stock-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 14px;
+
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+
+    background: #ffffff;
+}
+
+.dashboard-stock-name {
+    font-size: 14px;
+    font-weight: 500;
+
+    color: #212529;
+}
+
+.dashboard-stock-value {
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #dc3545;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   RECENT ORDERS TABLE
+   ========================================================= */
+
+.dashboard-table {
+    font-size: 14px;
+}
+
+.dashboard-table thead th {
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #6c757d;
+
+    border-bottom: 1px solid #dee2e6;
+
+    padding: 12px 10px;
+}
+
+.dashboard-table tbody td {
+    padding: 13px 10px;
+
+    color: #212529;
+
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.dashboard-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.dashboard-empty-state {
+    padding: 25px 15px;
+
+    text-align: center;
+
+    color: #6c757d;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   DASHBOARD CHARTS
+   ========================================================= */
+
+.dashboard-chart-container {
+    position: relative;
+
+    width: 100%;
+    height: 260px;
+}
+
+.dashboard-doughnut-container {
+    height: 230px;
+}
+
+
+/* =========================================================
+   ORDER STATUS SUMMARY
+   ========================================================= */
+
+.dashboard-status-summary {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+.dashboard-status-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 14px;
+
+    color: #495057;
+}
+
+.dashboard-status-item strong {
+    margin-left: auto;
+
+    color: #212529;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ORDER STATUS DOTS
+   ========================================================= */
+
+.dashboard-status-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+.status-delivered {
+    background-color: #198754;
+}
+
+.status-processing {
+    background-color: #0d6efd;
+}
+
+.status-pending {
+    background-color: #ffc107;
+}
+
+
+/* =========================================================
+   ORDER STATUS BADGES
+   ========================================================= */
+
+.dashboard-status-badge {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+.status-badge-delivered {
+    background-color: #d1e7dd;
+
+    color: #146c43;
+}
+
+.status-badge-processing {
+    background-color: #cfe2ff;
+
+    color: #084298;
+}
+
+.status-badge-pending {
+    background-color: #fff3cd;
+
+    color: #664d03;
+}
+
+
+/* =========================================================
+   ORDER AMOUNT CHART
+   ========================================================= */
+
+#orderAmountChart {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   ORDER STATUS CHART
+   ========================================================= */
+
+#orderStatusChart {
+    max-width: 100%;
+    max-height: 100%;
+}

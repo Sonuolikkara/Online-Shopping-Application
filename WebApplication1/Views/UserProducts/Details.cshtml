@@ -1,0 +1,305 @@
+@using Microsoft.AspNetCore.Http
+
+@{
+    ViewData["Title"] = "Product Details";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+    var productId =
+        Context.Request.RouteValues["id"];
+}
+
+@section Styles {
+    <link rel="stylesheet"
+          href="~/css/user-product-details.css" />
+}
+
+
+<div class="product-page" id="productPage" data-product-id="@productId">
+
+    <main class="product-container">
+
+
+        <!-- =====================================================
+             BACK TO PRODUCTS
+             ===================================================== -->
+
+        <a href="/UserProducts"
+           class="back-link">
+
+            ← Back to Products
+
+        </a>
+
+
+        <!-- =====================================================
+             API MESSAGE
+             ===================================================== -->
+
+        <div id="productMessage"
+             class="message"
+             style="display: none;">
+        </div>
+
+
+        <!-- =====================================================
+             LOADING
+             ===================================================== -->
+
+        <div id="productLoading"
+             class="product-loading">
+
+            Loading product...
+
+        </div>
+
+
+        <!-- =====================================================
+             PRODUCT
+             ===================================================== -->
+
+        <section id="productContent"
+                 class="product-content"
+                 style="display: none;">
+
+
+            <!-- =================================================
+                 PRODUCT IMAGE
+                 ================================================= -->
+
+            <div class="product-image"
+                 id="productImageContainer">
+
+                <img id="productImage"
+                     src=""
+                     alt=""
+                     style="display: none;" />
+
+                <span id="productImageLabel"
+                      class="image-label">
+
+                    Product Image
+
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 PRODUCT DETAILS
+                 ================================================= -->
+
+            <div class="product-details">
+
+
+                <!-- PRODUCT NAME -->
+
+                <h1 class="product-name"
+                    id="productName">
+
+                </h1>
+
+
+                <!-- PRODUCT ID -->
+
+                <div class="product-id">
+
+                    Product ID:
+                    <span id="productId"></span>
+
+                </div>
+
+
+                <!-- PRICE -->
+
+                <div class="product-price">
+
+                    ₹<span id="productPrice"></span>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="product-description"
+                     id="productDescription">
+
+                </div>
+
+
+                <!-- =================================================
+                     STOCK
+                     ================================================= -->
+
+                <div id="stockContainer"
+                     class="stock">
+
+                </div>
+
+
+                <!-- =================================================
+                     QUANTITY + ACTIONS
+                     ================================================= -->
+
+                <div id="quantityAndActions">
+
+
+                    <!-- QUANTITY -->
+
+                    <div class="quantity-section">
+
+                        <label for="quantity">
+
+                            Quantity
+
+                        </label>
+
+                        <input id="quantity"
+                               type="number"
+                               class="quantity-input"
+                               value="1"
+                               min="1"
+                               required />
+
+                    </div>
+
+
+                    <!-- =================================================
+                         ACTION BUTTONS
+                         ================================================= -->
+
+                    <div class="product-actions">
+
+
+                        <!-- ADD TO CART -->
+
+                        <button type="button"
+                                id="addToCartButton"
+                                class="btn-cart">
+
+                            <i class="bi bi-cart-plus"></i>
+
+                            ADD TO CART
+
+                        </button>
+
+
+                        <!-- BUY NOW -->
+
+                        <button type="button"
+                                id="buyNowButton"
+                                class="btn-buy">
+
+                            BUY NOW
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     OUT OF STOCK
+                     ================================================= -->
+
+                <div id="outOfStockContainer"
+                     class="product-actions"
+                     style="display: none;">
+
+                    <button type="button"
+                            class="btn-disabled"
+                            disabled>
+
+                        OUT OF STOCK
+
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     WISHLIST
+                     ================================================= -->
+
+                <div class="wishlist-form">
+
+                    <button type="button"
+                            id="wishlistButton"
+                            class="btn-wishlist">
+
+                        <i id="wishlistIcon"
+                           class="bi bi-heart">
+                        </i>
+
+                        <span id="wishlistText">
+
+                            ADD TO WISHLIST
+
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     EXTRA INFORMATION
+                     ================================================= -->
+
+                <div class="product-info">
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+
+                            Category
+
+                        </span>
+
+                        <span class="info-value"
+                              id="productCategory">
+
+                            N/A
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- AVAILABILITY -->
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+
+                            Availability
+
+                        </span>
+
+                        <span class="info-value"
+                              id="productAvailability">
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/user-product-details.js"></script>
+}

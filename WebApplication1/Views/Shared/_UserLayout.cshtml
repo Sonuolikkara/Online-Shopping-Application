@@ -1,0 +1,321 @@
+@using WebApplication1.Services
+
+<!-- DI -->
+@inject IGuestCartService GuestCartService
+
+<!--Razor Code Block-->
+@{
+    ViewData["Title"] ??= "Shopping Cart";
+
+    // GUEST CART COUNT
+    //
+    // Guest users do not have JWT or CustomerCookie.
+    // Their cart is stored in Session through
+    // GuestCartService.
+    //
+    //It reads the "GuestCart" session value and returns a list.
+    var guestCart =
+        GuestCartService.GetCart();
+        
+    //Total caucation using LINQ
+    int cartCount =
+        guestCart.Sum(item => item.Quantity);
+}
+
+<!--HTML Code-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>
+        @ViewData["Title"] - Shopping Cart
+    </title>
+
+
+    <!-- Bootstrap Icons -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin="" />
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+          rel="stylesheet" />
+
+     <!-- Custom CSS -->
+
+     <link rel="stylesheet"
+         href="~/css/user-layout.css" />
+
+         @await RenderSectionAsync("Styles", required: false)
+
+    <!-- jQuery -->
+
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+   <!-- User Layout JavaScript -->
+
+   <script src="~/js/user-layout.js"></script>
+
+
+    <!-- Customer API JavaScript -->
+
+    <script src="~/js/customer-api.js"></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= TOP BAR ================= -->
+
+    <div class="user-topbar">
+
+        <div class="topbar-left">
+
+            <span>
+
+                <i class="bi bi-shop"></i>
+
+                Shopping Cart
+
+            </span>
+
+
+            <span>
+
+                <i class="bi bi-envelope"></i>
+
+                support@shoppingcart.com
+
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= MAIN NAVIGATION ================= -->
+
+    <header class="user-header">
+
+        <nav class="user-navbar">
+
+
+            <!-- LEFT NAVIGATION -->
+
+            <div class="user-nav-left">
+
+                <!--Home Button Event In Top-->
+                <!--GET /UserHome-->
+                <a asp-controller="UserHome"
+                   asp-action="Index">
+
+                    Home
+
+                </a>
+
+                <!--Product Button Event In Top-->
+                <!--GET /UserProducts-->
+                <a asp-controller="UserProducts"
+                   asp-action="Index">
+
+                    Products
+
+                </a>
+
+            </div>
+
+
+
+            <!-- CENTER LOGO -->
+
+            <a asp-controller="UserHome"
+               asp-action="Index"
+               class="user-logo">
+
+                SHOPPING CART
+
+            </a>
+
+
+
+            <!-- RIGHT NAVIGATION -->
+
+            <div class="user-nav-right">
+
+
+                <!-- ================= SEARCH ================= -->
+
+                <!--Search Bar Button Event In Top-->
+                <!--/search?search=laptop-->
+                <form asp-controller="UserProducts"
+                      asp-action="Index"
+                      method="get"
+                      class="navbar-search">
+
+                    <i class="bi bi-search"></i>
+
+                   <!--Search input field with the current search query value--!>
+                   <input type="text"
+                           name="search"
+                           value="@Context.Request.Query["search"]"
+                           placeholder="Search"
+                           autocomplete="off" />
+
+                    <button type="submit">
+
+                        Search
+
+                    </button>
+
+                </form>
+
+
+
+                <!-- ================= WISHLIST ================= -->
+                <!--Wishlist Button Event In Top-->
+                <!--GET /UserWishlist-->
+                <a asp-controller="UserWishlist"
+                   asp-action="Index"
+                   class="user-nav-link">
+
+                    <i class="bi bi-heart"></i>
+
+                    Wishlist
+
+                </a>
+
+
+
+                <!-- ================= CART ================= -->
+                <!--Add to Cart Button Event In Top-->
+                <!--GET /UserCart-->
+                <a asp-controller="UserCart"
+                   asp-action="Index"
+                   class="user-nav-link cart-link">
+
+                    <span class="cart-icon-wrapper">
+
+                        <i class="bi bi-cart3"></i>
+
+                        <!--Cart Count-->
+                        <span id="cartCount"
+                              class="cart-count"
+                              style="@(cartCount > 0 ? "" : "display:none;")">
+
+                            @cartCount
+
+                        </span>
+
+                    </span>
+
+
+                    Cart
+
+                </a>
+
+
+
+                <!-- ================= LOGIN / LOGOUT ================= -->
+
+                <div id="customerAuthSection">
+                    <!--LOGIN Button Event In Top-->
+                    <!--GET /CustomerLogin-->
+                    <a asp-controller="CustomerLogin"
+                       asp-action="Index"
+                       class="login-link"
+                       id="customerLoginLink">
+
+                        Login
+
+                    </a>
+
+
+                    <button type="button"
+                            class="user-logout"
+                            id="customerLogoutButton"
+                            style="display:none;">
+
+                        <i class="bi bi-box-arrow-right"></i>
+
+                        Logout
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= PAGE CONTENT ================= -->
+
+    <main>
+
+        @RenderBody()
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="user-footer">
+
+        <div>
+
+            <strong>
+
+                SHOPPING CART
+
+            </strong>
+
+
+            <p>
+
+                Simple shopping. Quality products.
+
+            </p>
+
+        </div>
+
+
+        <div>
+
+            © @DateTime.Now.Year Shopping Cart
+
+        </div>
+
+    </footer>
+
+     <!-- ================= PAGE SCRIPTS ================= -->
+
+    @await RenderSectionAsync(
+        "Scripts",
+        required: false)
+
+</body>
+
+</html>
