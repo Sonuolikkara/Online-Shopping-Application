@@ -1,0 +1,160 @@
+@model WebApplication1.Models.CustomerLoginModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/customer-login.css" />
+}
+
+<div class="login-page">
+
+    <main class="login-container">
+
+        <!-- ================= HEADER ================= -->
+
+        <div class="login-header">
+
+            <div class="login-label">
+                Welcome Back
+            </div>
+
+            <h1 class="login-title">
+                Login
+            </h1>
+
+            <p class="login-subtitle">
+                Sign in to continue shopping
+            </p>
+
+        </div>
+
+
+        <!-- ================= FORM ================= -->
+
+        <form asp-controller="CustomerLogin"
+              asp-action="Index"
+              method="post"
+              class="login-form"
+              id="loginForm">
+
+            @Html.AntiForgeryToken()
+
+
+            <!-- CUSTOM ERROR -->
+
+            <div id="loginError"
+                 class="login-error">
+            </div>
+
+
+            <!-- SERVER ERROR -->
+
+            @if (!ViewData.ModelState.IsValid &&
+                 ViewData.ModelState[string.Empty] != null)
+            {
+                <div class="validation-summary">
+
+                    @foreach (var error in ViewData.ModelState[string.Empty].Errors)
+                    {
+                        <div>
+                            @error.ErrorMessage
+                        </div>
+                    }
+
+                </div>
+            }
+
+
+            <!-- ================= EMAIL ================= -->
+
+            <div class="form-group">
+
+                <label asp-for="Email"
+                       class="form-label">
+
+                    Email
+
+                </label>
+
+                <input asp-for="Email"
+                       id="loginEmail"
+                       class="form-control"
+                       type="email"
+                       placeholder="Enter your email"
+                       autocomplete="email" />
+
+            </div>
+
+
+            <!-- ================= PASSWORD ================= -->
+
+            <div class="form-group">
+
+                <label asp-for="Password"
+                       class="form-label">
+
+                    Password
+
+                </label>
+
+                <input asp-for="Password"
+                       id="loginPassword"
+                       class="form-control"
+                       type="password"
+                       placeholder="Enter your password"
+                       autocomplete="current-password" />
+
+            </div>
+
+
+            <!-- ================= LOGIN BUTTON ================= -->
+
+            <button type="submit"
+                    class="login-button">
+
+                LOGIN
+
+            </button>
+
+        </form>
+
+
+        <!-- ================= REGISTER ================= -->
+
+        <div class="register-section">
+
+            <p class="register-text">
+                Don't have an account?
+            </p>
+
+            <a asp-controller="CustomerLogin"
+               asp-action="Register"
+               class="register-link">
+
+                CREATE AN ACCOUNT
+
+            </a>
+
+        </div>
+
+
+        <!-- ================= BACK ================= -->
+
+        <a asp-controller="UserHome"
+           asp-action="Index"
+           class="back-home">
+
+            ← Back to Home
+
+        </a>
+
+    </main>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/customer-login.js"></script>
+}

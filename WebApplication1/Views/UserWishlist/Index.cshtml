@@ -1,0 +1,64 @@
+@{
+    ViewData["Title"] = "Wishlist";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/user-wishlist.css" />
+}
+
+<div class="wishlist-page">
+
+    <main class="wishlist-container">
+
+        <div class="wishlist-header">
+
+            <div class="wishlist-label">
+                Shopping Cart
+            </div>
+
+            <h1 class="wishlist-title">
+                My Wishlist
+            </h1>
+
+            <p class="wishlist-subtitle">
+                Products you want to keep for later
+            </p>
+
+        </div>
+
+        <div id="wishlistMessage"
+             class="wishlist-message"></div>
+
+        <!-- Wishlist items will be loaded using Web API -->
+
+        <div id="wishlistContainer">
+
+            <div class="wishlist-empty">
+
+                <p>
+                    Loading wishlist...
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="wishlist-footer">
+
+            <a asp-controller="UserProducts"
+               asp-action="Index">
+
+                ← Continue Shopping
+
+            </a>
+
+        </div>
+
+    </main>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/user-wishlist.js"></script>
+}

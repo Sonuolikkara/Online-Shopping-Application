@@ -1,0 +1,92 @@
+@model WebApplication1.Models.Category
+
+@{
+    ViewData["Title"] = "Delete Category";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+
+    bool hasProducts = ViewBag.HasProducts;
+}
+
+<div class="container-fluid">
+
+    <div class="mb-4">
+        <h2>Delete Category</h2>
+        <p class="text-muted">
+            Confirm category deletion
+        </p>
+    </div>
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            @if (hasProducts)
+            {
+                <div class="alert alert-warning">
+
+                    <i class="bi bi-exclamation-triangle me-2"></i>
+
+                    <strong>Cannot delete this category.</strong>
+
+                    <br />
+
+                    Products are currently assigned to
+                    <strong>@Model.CategoryName</strong>.
+
+                    Remove or reassign those products before
+                    deleting this category.
+
+                </div>
+
+                <a asp-controller="AdminCategories"
+                   asp-action="Index"
+                   class="btn btn-secondary">
+
+                    Back to Categories
+
+                </a>
+            }
+            else
+            {
+                <div class="alert alert-danger">
+
+                    Are you sure you want to delete:
+
+                    <strong>@Model.CategoryName</strong>?
+
+                </div>
+
+                <form asp-controller="AdminCategories"
+                      asp-action="DeleteConfirmed"
+                      method="post">
+
+                    @Html.AntiForgeryToken()
+
+                    <input type="hidden"
+                           name="id"
+                           value="@Model.CategoryID" />
+
+                    <button type="submit"
+                            class="btn btn-danger">
+
+                        <i class="bi bi-trash me-1"></i>
+                        Yes, Delete
+
+                    </button>
+
+                    <a asp-controller="AdminCategories"
+                       asp-action="Index"
+                       class="btn btn-outline-secondary">
+
+                        Cancel
+
+                    </a>
+
+                </form>
+            }
+
+        </div>
+
+    </div>
+
+</div>

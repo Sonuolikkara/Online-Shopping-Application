@@ -1,0 +1,211 @@
+@{
+    ViewData["Title"] = "Products";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/user-products.css" />
+}
+
+
+
+<div class="shop-page">
+
+    <main class="shop-container">
+
+        <!-- =====================================================
+             TITLE
+             ===================================================== -->
+
+        <h1 class="shop-title">
+            Shop Our Products
+        </h1>
+
+        <p class="shop-subtitle">
+            Discover quality products at great prices.
+        </p>
+
+
+        <!-- =====================================================
+             SHOP NOW / SEARCH / PRODUCT COUNT
+             ===================================================== -->
+
+        <div class="shop-toolbar">
+
+            <span class="shop-now-label">
+                Shop Now
+            </span>
+
+            <!--Search Form-->
+            <form id="productSearchForm"
+                  class="product-search-form">
+
+                <div class="product-search-box">
+
+                   <!--Search Input--> 
+                    <i class="bi bi-search"></i>
+
+                    <input type="text"
+                           id="productSearch"
+                           placeholder="Search products..."
+                           autocomplete="off" />
+
+                    <button type="submit">
+                        Search
+                    </button>
+
+                </div>
+
+            </form>
+
+            <!--Product count-->
+            <span class="product-count"
+                  id="productCount">
+                0 products
+            </span>
+
+        </div>
+
+
+        <!-- =====================================================
+             SEARCH RESULT MESSAGE
+             ===================================================== -->
+
+        <!--Product layout initially hidden-->
+        <div id="searchResultMessage"
+             class="search-result-message"
+             style="display:none;">
+        </div>
+
+
+        <!-- =====================================================
+             PRODUCTS
+             ===================================================== -->
+
+        <section class="product-layout"
+                 id="productLayout"
+                 style="display:none;">
+
+            <!-- FEATURED PRODUCT -->
+
+            <article class="product-card featured-product">
+
+                <div class="product-image"
+                     id="featuredImage">
+                </div>
+
+                <div class="product-info">
+
+                    <h2 class="product-name"
+                        id="featuredName">
+                    </h2>
+
+                    <p class="product-description"
+                       id="featuredDescription">
+                    </p>
+
+                    <div class="product-meta">
+
+                        <span class="product-price"
+                              id="featuredPrice">
+                        </span>
+
+                        <span class="product-stock"
+                              id="featuredStock">
+                        </span>
+
+                    </div>
+
+                    <!--EVENT-->
+                    <!--View Product Button Event-->
+                    
+                    <a class="view-product"
+                       id="featuredViewProduct"
+                       href="#">
+                        VIEW PRODUCT
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- SMALL PRODUCTS -->
+
+            <div class="small-products"
+                 id="smallProducts">
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EMPTY PRODUCTS
+             ===================================================== -->
+
+        <div class="empty-products"
+             id="emptyProducts"
+             style="display:none;">
+
+            <strong id="emptyTitle">
+                No products are currently available.
+            </strong>
+
+            <p id="emptyMessage"
+               style="margin:10px 0 0;">
+            </p>
+
+            <a href="/UserProducts"
+               id="viewAllProducts"
+               style="
+                    display:none;
+                    margin-top:20px;
+                    padding:10px 18px;
+                    background:#171717;
+                    color:#ffffff;
+                    text-decoration:none;
+                    font-size:9px;
+               ">
+                VIEW ALL PRODUCTS
+            </a>
+
+        </div>
+
+
+        <!-- =====================================================
+             PROMOTIONAL SECTION
+             ===================================================== -->
+
+        <section class="shopping-promo">
+
+            <div class="shopping-promo-content">
+
+                <p class="shopping-promo-label">
+                    Shop Smarter
+                </p>
+
+                <h2 class="shopping-promo-title">
+                    Find Something
+                    You Love
+                </h2>
+
+                <p class="shopping-promo-text">
+                    Browse our collection and find
+                    products that fit your needs.
+                </p>
+
+            </div>
+
+            <div class="shopping-promo-visual">
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/user-products.js"></script>
+}
